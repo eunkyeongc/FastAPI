@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 
 # 할 일 생성 요청 모델
-class TodoCreateRequest(BaseModel):
+class PostCreateRequest(BaseModel):
     title: str
     is_done: bool = False
 
@@ -9,5 +9,3 @@ class TodoCreateRequest(BaseModel):
 class TodoUpdateRequest(BaseModel):
     title: str | None = None
     is_done: bool | None = None
-
-

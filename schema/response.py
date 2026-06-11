@@ -5,4 +5,3 @@ class TodoResponse(BaseModel):
     id: int
     title: str
     is_done: bool
-    
