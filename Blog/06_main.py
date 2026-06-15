@@ -2,7 +2,11 @@ from Blog.response import PostResponse
 from fastapi import FastAPI, status, HTTPException
 from Blog.request import PostCreateRequest, PostUpdateRequest
 
-app = FastAPI()
+app = FastAPI(
+    title='블로그 API'
+    description="FastAPI 입문 실습 과제 - 블로그"
+    version='1.0.0'
+)
 
 posts =[
     {'id': 1,  'title': 'Python', 'content': 'python 기초다지기'},
