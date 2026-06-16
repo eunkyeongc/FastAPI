@@ -12,4 +12,6 @@
 from sqlalchemy.orm import DeclarativeBase
 # DeclarativeBase는 sqlalchemy의 모든 모델이 상속받아야 하는 기본 클래스를 생성
 
-
+# Base 클래서: 이 클래스를 상속받는 모든 클래스는 DB 테이블로 취급한다는 기준점 역할
+class Base(DeclarativeBase):
+    pass 
