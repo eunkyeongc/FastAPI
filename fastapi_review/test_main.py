@@ -170,7 +170,7 @@ def test_user_has_items(client):
 
     data = response.json()
 
-    # 위에서 아이템 1개를 생성 -> items 가 비어 있지 않아야 한다.
+    # 위에서 아이템 1개를 생성 -> items 가 비어 있지 않아야 한다.a
     assert len(data['items']) >= 1
 
     # 첫번째 아이템의  title이 맞는지 확인
