@@ -29,14 +29,14 @@ def load_from_csv(path: str=INPUT_PATH)->dict:
                 정류소명 = str(row['정류소명']),
                 # pd.notna() : Nan/None 여부 확인 후, 값이 있을 때만 형변환
                 정류소번호 = int(row['정류소번호']) if pd.notna(row['정류소번호']) else None,
-                위도 = float(row(['위도'])) if pd.notna(row['위도']) else None,
+                위도 = float(row['위도']) if pd.notna(row['위도']) else None,
                 경도 = float(row['경도']) if pd.notna(row['경도']) else None,
                 수집일시 = row['수집일시'],
                 위치구분 = str(row['위치구분']) if pd.notna(row['위치구분']) else None,
             )
-            db.maerge(stop)
+            db.merge(stop)
             db.commit()
-            sussess += 1
+            success += 1
 
         except Exception as e:
             # 실패한 행만 롤백하고, 다음 행은 이어서 진행
