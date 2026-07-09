@@ -7,14 +7,14 @@
 
 from sqlalchemy.orm import Session
 from sqlalchemy.orm import joinedload
-from database import date
+from datetime import date
 import models
 
 
 """ player_id 로 선수 1명을 조회한다. 없으면 None을 반환 """
 def get_player(db: Session, player_id: int):
     
-    return db.query(models.Player).filter(models.Player.player_id == player_id).frist()
+    return db.query(models.Player).filter(models.Player.player_id == player_id).first()
     # --> player_id의 첫번째 레코드(행)을 조회하고 반환
 
 

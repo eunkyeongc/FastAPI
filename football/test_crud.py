@@ -5,10 +5,7 @@
 #===============================================================
 
 import pytest
-from database import date
-
-from sqlalchemy.orm import Session
-from sqlalchemy.orm import joinedload
+from datetime import date
 
 import models
 import crud
@@ -38,70 +35,71 @@ def test_get_player(db_session):
 
 def test_get_players(db_session):    
     """ 202-04-01 이후 변경된 선수 수가 seed 데이터 기준 1018명인지 확인 """    
-    players = crud.get_player(db_session, skip=0, limi=10000, min_last_changed_date=test_date)
+    players = crud.get_players(db_session, skip=0, limit=10000, min_last_changed_date=test_date)
     assert len(players) == 1018
 
 def test_get_all_performances(db_session):
     """ 전체 성적 기록수가 17306건인지 확인 """
+    performances = crud.get_performances(db_session, skip=0, limit=18000)
+    assert len(performances) == 17306
+
+
+def test_get_new_performances(db_session):
+    """ 2024-074-01 이후 갱신된 성적 기록이 2711건인지 확인"""
+    performances = crud.get_performances(db_session, skip=0, limit=10000,  min_last_changed_date=test_date )
+    assert len(performances) == 2711
+
+
+def test_get_league(db_session):   
+    """ 
+        league_id=5002 리그를 가져오고, 소속 팀이 8개인지 확인
+        league.teams에 접근하는 순간 SQLAlchemy가 지연 로딩(lazy load)으로 추가 쿼리 날려 teams를 채운다. 
+    """
+    league = crud.get_league(db_session, league_id=5002)
+    assert league.league_id == 5002
+    assert len(league.teams) == 8
+
+
+def test_get_leagues(db_session):   
+    """ 전체 리그 수가 5개인 확인"""
+    leagues = crud.get_leagues(db_session, skip=0, limit=10000, min_last_changed_date=test_date)
+    assert len(leagues) == 5
+
+
+def test_get_teams(db_session):
+    """ 전체 팀수가 20개인지 확인 """
+    teams =crud.get_teams(db_session, skip=0, limit=10000, min_last_changed_date=test_date)
+    assert len(teams) == 20
+
+
+
+def test_get_teams_for_one_league(db_session):
+    """ league_id가 5001번인 것 확인 """
+    teams = crud.get_teams(db_session, league_id=5001)
+    assert len(teams) == 12
+    assert teams[0].league_id == 5001
+
+
+def test_get_team_players(db_session):
+    """ 팀 기록에서 선수를 조회할수 있으며 첫번째 팀에 7명의 선수가 있는지 확인 """
+    first_team = crud.get_teams(db_session, skip=0, limit=1000, min_last_changed_date=test_date)[0]
+    assert len(first_team.players) == 7
+
+
+def test_get_player_count(db_session):
+    """ 전체 선수 수를 센다. 1018명"""
+    player_count = crud.get_player_count(db_session)
+    assert player_count == 1018
+
+
+def test_get_team_count(db_session):
+    """ 전체 팀 수를 센다. 20팀 """
+    team_count = crud.get_team_count(db_session)
+    assert team_count == 20
     
-    
 
 
-
-""" 리그 하나를 league_id로 조회한다. """
-def get_league(db: Session, league_id: int = None):
-   
-    return db.query(models.League).filter(models.League.league_id == league_id).first()
-
-
-""" 
-    리그 목록을 조회, 각 리그에 속한 teams까지 한 번에 즉시 로딩(eager load)
-    joinedload(models.League.teams)를 사용하면 League를 조회할때 SQL JOIN으로  Team까지 한번의 쿼리로 같이 가져온다.
-"""
-def get_leagues(db: Session, skip: int = 0, limit: int = 100, min_last_changed_date: date = None, league_name: str = None):
-   
-    query = db.query(models.League).options(joinedload(models.League.teams))
-    if min_last_changed_date:
-        query = query.filter(models.League.last_changed_date >= min_last_changed_date)
-    
-    if league_name:
-        query = query.filter(models.League.league_name == league_name)
-    
-    return query.offset(skip).limit(limit).all()
-   
-
-""" 팀 목록을 조회한다. league_id를 주면 특정 리스 소속 팀만 필터링한다. """
-def get_teams(db: Session, skip: int = 0, limit: int = 100, min_last_changed_date: date = None, team_name: str = None, league_id: int = None):
-    
-    query = db.query(models.Team)
-    if min_last_changed_date:
-        query = query.filter(models.Team.last_changed_date >= min_last_changed_date)
-    
-    if league_id:
-        query =query.filter(models.Team.league_id == league_id)
-    
-    return query.offset(skip).limit(limit).all()
-
-
-# 분석 쿼리 (단순 카운트) -----------------------------------
-
-""" 전체 선수 수를 센다. """
-def get_player_count(db: Session):
-
-    query = db.query(models.Player)
-    return query.count()
-
-
-""" 전체 팀 수를 센다. """
-def get_team_count(db: Session):
-
-    query = db.query(models.Team)
-    return query.count()
-
-
-""" 전체 리그 수를 센다. """
-def get_league_count(db: Session):
-
-    query = db.query(models.League)
-    return query.count()
-
+def test_get_league_count(db_session):
+    """ 전체 리그 수를 센다. 5개"""
+    league_count = crud.get_league_count(db_session)
+    assert league_count == 5

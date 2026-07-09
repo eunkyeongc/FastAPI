@@ -15,7 +15,7 @@ from database import Base
 # 클래스 네임은 대문자로 시작, 테이블 네임은 소문자로 시작
 
 """ 1) 선수 정보를 담은 테이블, 판타지 풋볼 리그에 참가하는 개별 선수 1명 = 1행 """
-class player(Base):
+class Player(Base):
     __tablename__ ="player"
 
     # PostgreSQL에서는  String이 VARCHAR로 매핑된다.
@@ -40,8 +40,8 @@ class Performance(Base):
     __tablename__ ="performance"
 
     performance_id = Column(Integer, primary_key=True, index=True)   # 성적 기록 고유 번호
-    week_number = Column(Float, nullable=False)                     # 시즌 몇 주차인지
-    fantasy_points = Column(Date, nullable=False)                   # 판타지 점수
+    week_number = Column(String, nullable=False)                     # 시즌 몇 주차인지
+    fantasy_points = Column(Float, nullable=False)                   # 판타지 점수
     last_changed_date = Column(Date, nullable=False)                # 데이터가 마지막으로 수정된 날짜
 
     # player 테이블의 player_id를 참조하는 외래키(FK)
