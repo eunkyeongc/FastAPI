@@ -12,9 +12,7 @@ app = FastAPI()
 
 # 종속성
 def get_db():
-    """
-    요청 하나하나마다 PostgreSQL 세션을 열고, 응답 후 닫아주는 의존성 함수
-    """
+    """ 요청 하나하나마다 PostgreSQL 세션을 열고, 응답 후 닫아주는 의존성 함수 """
     db = SessionLocal()
     try:
         # yield 앞은 요청 처리 전에 실행되고, yield로 넘긴 db가 엔드포인트 함수에 주입된다
