@@ -85,7 +85,7 @@ async def root():   # async는 비동기
          summary='요청 매개변수에 해당하는 모든  SWC 선수 정보를 가져옵니다.',
          description=''' 이 엔드포인트를 사용해 SWC 선수 목록을 조회합니다. 매개변수를 이용해 목록을 필터링할 수 있습니다. 이름은 고유하지 않습니다. 
          skip과 limit를 사용해 API 페이징을 수행합니다. 선수 수를 셀때는 Player ID값을 사용하지 않습니다. ID는 순차적으로 진행되지 않습니다.''',
-         response_description= 'SWC 판타지 풋볼에 등록된 NFL 선수 목록입니다. 팀에 속해 있찌 않아도 선수 목록을 제공합니다.',
+         response_description= 'SWC 판타지 풋볼에 등록된 NFL 선수 목록입니다. 팀에 속해 있지 않아도 선수 목록을 제공합니다.',
          operation_id='v0_get_players',
          tags=['players']
          )
