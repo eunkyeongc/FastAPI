@@ -20,7 +20,7 @@
 # =======================================================================
 
 from fastapi.testclient import TestClient
-from main import app
+from day64_to_do.main import app
 
 client = TestClient(app)
 

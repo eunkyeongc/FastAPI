@@ -11,13 +11,13 @@
 #   DETELE /todos/{todo_id} --> 할 일 삭제
 # ======================================================
 
-from schema.response import TodoResponse
-from schema.request import TodoCreateRequest, TodoUpdateRequest
+from day64_to_do.schema.response import TodoResponse
+from day64_to_do.schema.request import TodoCreateRequest, TodoUpdateRequest
 from fastapi import FastAPI, status, HTTPException
 from sqlalchemy import select  # ORM 모델을 기준으로 조회 쿼리 객체를 생성
-from database.db_connection import engine, SesstionFactory
-from database.orm import Base
-from models import Todo
+from day64_to_do.database.db_connection import engine, SesstionFactory
+from day64_to_do.database.orm import Base
+from day64_to_do.models import Todo
 
 # 앱 시작 시 테이블 자동 생성
 #   Base를 상속받은 모든 모델(Todo 등)의 데이블을 DB에 자동 생성

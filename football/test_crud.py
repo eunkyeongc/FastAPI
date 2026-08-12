@@ -6,10 +6,11 @@
 import pytest
 from datetime import date    
 
+
 from sqlalchemy.orm import Session
 from sqlalchemy.orm import joinedload
                                                                  
-import models
+import day64_to_do.models as models
 import crud
 from database import SessionLocal
 

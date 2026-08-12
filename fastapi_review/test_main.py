@@ -14,7 +14,7 @@ import pytest
 from fastapi.testclient import TestClient   # 서버없이 FastAPI에 요청하는 가짜 클라이언트
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from main import app    # 테스트할 FastAPI 앱
+from day64_to_do.main import app    # 테스트할 FastAPI 앱
 from database import Base
 from dependencies import get_db # 테스트용 DB로 교체할 원본 get_db
 

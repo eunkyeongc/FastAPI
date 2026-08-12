@@ -2,7 +2,7 @@ import os
 import pandas as pd
 from sqlalchemy.dialects.postgresql import insert as pg_insert
 from database import engine
-from models import Order
+from day64_to_do.models import Order
 
 BASE_DIR = os.getcwd()  #현재 파이썬 프로그램이 실행되고 있는 작업 폴더의 경로를 문자열로 반환
 ORDERS_PATH = os.path.join(BASE_DIR, 'input', 'orders.csv')

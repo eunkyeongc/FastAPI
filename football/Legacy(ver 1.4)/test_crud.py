@@ -7,7 +7,7 @@
 import pytest
 from datetime import date
 
-import models
+import day64_to_do.models as models
 import crud
 from database import SessionLocal
 

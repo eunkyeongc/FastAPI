@@ -11,7 +11,7 @@
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from models import Base
+from day64_to_do.models import Base
 
 DB_URL = 'postgresql://postgres:1234@localhost:5432/busapidb'
 

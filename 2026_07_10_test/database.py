@@ -4,12 +4,13 @@
 #
 # PostgreSQL 연결 및 세션 관리
 # (DB명 : subwaydb, 비밀번호: 1234)
-# =========================================================
+# ================
+# =========================================
 
 # 라이브러리 불러오기
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from models import Base
+from day64_to_do.models import Base
 
 # DB URL 연결 
 DB_URL = 'postgresql://postgres:1234@localhost:5432/horsedb'

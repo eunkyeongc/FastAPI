@@ -6,7 +6,7 @@
 
 from fastapi import FastAPI
 from database import engine
-import models
+import day64_to_do.models as models
 from routers import users, items
 
 models.Base.metadata.create_all(bind=engine)

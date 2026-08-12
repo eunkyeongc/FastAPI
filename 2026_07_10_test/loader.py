@@ -7,10 +7,11 @@
 
 # 라이브러리 불러오기
 import os
+
 import pandas  as pd
 from sqlalchemy.dialects.postgresql import insert as pg_insert
 from database import engine
-from models import HorseRaw
+from day64_to_do.models import HorseRaw
 
 # 경로 설정 및 기본값 설정
 BASE_DIR = os.getcwd()  

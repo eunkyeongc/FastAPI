@@ -12,7 +12,7 @@
 
 from sqlalchemy.orm import Session
 from pwdlib import PasswordHash
-import models, schemas #fastapi_review/ 안에 있는 파일들 medels.py, schemas.py
+import day64_to_do.models as models, schemas #fastapi_review/ 안에 있는 파일들 medels.py, schemas.py
 
 pwd_hasher = PasswordHash.recommended()  # pwdlib가 권장하는 해싱 알고리즘(argon2) 자동 선택
 

@@ -22,7 +22,7 @@ from pathlib import Path # 파일의 경로를 찾기 쉽게해주는 함수
 from sqlalchemy.orm import Session
 
 from database import Base, engine
-import models
+import day64_to_do.models as models
 
 # 현재 파일이 들어있는  football 폴더의 절대 경로
 #   (어느 위치에서 실행하더라도  data 폴더를 안정적으로 찾기 위해 사용한다.)

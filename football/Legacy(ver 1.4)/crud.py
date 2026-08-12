@@ -8,7 +8,7 @@
 from sqlalchemy.orm import Session
 from sqlalchemy.orm import joinedload
 from datetime import date
-import models
+import day64_to_do.models as models
 
 
 """ player_id 로 선수 1명을 조회한다. 없으면 None을 반환 """

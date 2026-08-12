@@ -10,7 +10,7 @@ from sqlalchemy import Integer, String, Boolean     # 컬럼 타입 임포트
 # Mapped:ORM에 의해 관리되는 컬럼 
 # # mapped_column: 파이썬 클래스의 속성을 데이터베이스 컬럼으로 연결하는 역할
 from sqlalchemy.orm import Mapped, mapped_column    
-from database.orm import Base
+from day64_to_do.database.orm import Base
 
 # Todo 모델 정의
 class Todo(Base):

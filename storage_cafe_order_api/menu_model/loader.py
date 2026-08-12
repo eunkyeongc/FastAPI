@@ -2,7 +2,7 @@ import os
 import pandas as pd
 from sqlalchemy.dialects.postgresql import insert as pg_insert
 from database import engine
-from models import Menu
+from day64_to_do.models import Menu
 
 BASE_DIR = os.getcwd()
 MENU_PATH = os.path.join(BASE_DIR, 'input', 'menu.csv')
