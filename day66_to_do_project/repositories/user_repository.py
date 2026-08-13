@@ -19,7 +19,7 @@ class UserRepository:
     def find_by_email(self, email: str) -> User | None:
         """ 로그인과 회원가입 중복체크 두 군데 모드에서 사용된다. 이메일이 같으면 User 반환, 결과가 없으면 None을 반환 """
         stmt = select(User).where(User.email == email )
-        # self.session.execute(stmt).scalar()를 축약하면 사용 가능
+        # self.session.execute(stmt).scalar()를 축약으로도 사용 가능
         return self.session.scalar(stmt)
 
     def fine_by_id(self, user_id: int) -> User | None:

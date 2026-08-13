@@ -30,5 +30,3 @@ SessionFactory = sessionmaker(
     expire_on_commit=False, # commit 후에도 데이터가 메모리에 유지된다.(True라면 DB다시 조회)
     bind=engine             # 위에서 만든 엔진과 세션을 연결
 )
-
-
