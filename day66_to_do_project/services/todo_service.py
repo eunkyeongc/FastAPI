@@ -34,7 +34,7 @@ class TodoService:
         return todo
 
     def create_todo(self, body: TodoCreateRequest, user_id: int) -> Todo:
-        todo = Todo(title = body.title, id_done = body.is_done, user_id = user_id)
+        todo = Todo(title = body.title, is_done = body.is_done, user_id = user_id)
 
         return self.repository.save(todo) # DB에 저장(서비스가 바로 저장하지 않는다. -> Repository한테 맡긴다.)
 
