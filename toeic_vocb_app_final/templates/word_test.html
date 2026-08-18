@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>TOEIC 단어 테스트</title>
+
+    <link
+        rel="stylesheet"
+        href="/static/css/style.css"
+    >
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>📝 단어 테스트</h1>
+
+    <p class="subtitle">
+        영어 단어의 뜻을 골라보세요.
+    </p>
+
+    <p
+        id="progress"
+        class="progress"
+    ></p>
+
+
+    <div
+        id="test-area"
+        class="card"
+    >
+
+        <h2
+            id="question-word"
+            style="text-align: center; font-size: 36px;"
+        ></h2>
+
+        <div id="options"></div>
+
+        <p
+            id="result"
+            class="result"
+        ></p>
+
+
+        <div class="button-group">
+
+            <button
+                id="next-btn"
+                disabled
+            >
+                다음 문제
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div
+        id="final-result"
+        class="card"
+        style="display: none;"
+    >
+
+        <h2>🎉 테스트 결과</h2>
+
+        <p
+            id="score"
+            class="result"
+        ></p>
+
+
+        <h3>틀린 단어</h3>
+
+        <div id="wrong-words"></div>
+
+
+        <div class="button-group">
+
+            <a href="/sentence-test?level={{ level }}&day={{ day }}">
+                <button>
+                    문장 테스트 시작
+                </button>
+            </a>
+
+            <a href="/wrong-note">
+                <button>
+                    오답노트 보기
+                </button>
+            </a>
+
+            <a href="/">
+                <button>
+                    홈으로
+                </button>
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    const questions = {{ questions | tojson }};
+
+    const currentLevel = "{{ level }}";
+
+    const currentDay = {{ day }};
+
+
+    let currentIndex = 0;
+
+    let correctCount = 0;
+
+    const wrongWords = [];
+
+
+    async function saveWrongWord(wordId) {
+
+        const response = await fetch(
+            "/wrong-words",
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+                    word_id: wordId
+                })
+            }
+        );
+
+        const result = await response.json();
+
+        console.log(
+            "오답 저장:",
+            result
+        );
+    }
+
+
+    async function saveProgress(
+        level,
+        day,
+        progressType
+    ) {
+
+        const response = await fetch(
+            "/progress",
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+                    level: level,
+                    day: day,
+                    progress_type: progressType
+                })
+            }
+        );
+
+        const data = await response.json();
+
+        console.log(
+            "진행상황 저장:",
+            data
+        );
+
+        return data;
+    }
+
+
+    function showQuestion() {
+
+        if (questions.length === 0) {
+
+            document.getElementById(
+                "test-area"
+            ).innerHTML =
+                "<p>시험을 볼 단어가 없습니다.</p>";
+
+            document.getElementById(
+                "progress"
+            ).textContent = "";
+
+            return;
+        }
+
+
+        const question =
+            questions[currentIndex];
+
+
+        document.getElementById(
+            "progress"
+        ).textContent =
+            `${currentIndex + 1} / ${questions.length}`;
+
+
+        document.getElementById(
+            "question-word"
+        ).textContent =
+            question.word;
+
+
+        document.getElementById(
+            "result"
+        ).textContent = "";
+
+
+        document.getElementById(
+            "next-btn"
+        ).disabled = true;
+
+
+        const optionsDiv =
+            document.getElementById(
+                "options"
+            );
+
+
+        optionsDiv.innerHTML = "";
+
+
+        question.options.forEach(
+            function(option) {
+
+                const button =
+                    document.createElement(
+                        "button"
+                    );
+
+
+                button.textContent =
+                    option;
+
+
+                button.className =
+                    "option-button";
+
+
+                button.addEventListener(
+                    "click",
+                    function() {
+
+                        checkAnswer(
+                            option
+                        );
+
+                    }
+                );
+
+
+                optionsDiv.appendChild(
+                    button
+                );
+            }
+        );
+    }
+
+
+    async function checkAnswer(
+        selectedOption
+    ) {
+
+        const question =
+            questions[currentIndex];
+
+
+        const result =
+            document.getElementById(
+                "result"
+            );
+
+
+        const buttons =
+            document
+                .getElementById(
+                    "options"
+                )
+                .querySelectorAll(
+                    "button"
+                );
+
+
+        buttons.forEach(
+            function(button) {
+
+                button.disabled = true;
+
+            }
+        );
+
+
+        if (
+            selectedOption ===
+            question.answer
+        ) {
+
+            correctCount++;
+
+            result.textContent =
+                "정답입니다! 🎉";
+
+        } else {
+
+            result.textContent =
+                `오답입니다. 정답: ${question.answer}`;
+
+
+            wrongWords.push({
+                word_id: question.word_id,
+                word: question.word,
+                answer: question.answer
+            });
+
+
+            await saveWrongWord(
+                question.word_id
+            );
+        }
+
+
+        document.getElementById(
+            "next-btn"
+        ).disabled = false;
+    }
+
+
+    async function showFinalResult() {
+
+        await saveProgress(
+            currentLevel,
+            currentDay,
+            "word_test"
+        );
+
+
+        document.getElementById(
+            "test-area"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "progress"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "final-result"
+        ).style.display =
+            "block";
+
+
+        document.getElementById(
+            "score"
+        ).textContent =
+            `${questions.length}문제 중 ${correctCount}문제 정답`;
+
+
+        const wrongWordsDiv =
+            document.getElementById(
+                "wrong-words"
+            );
+
+
+        wrongWordsDiv.innerHTML =
+            "";
+
+
+        if (
+            wrongWords.length === 0
+        ) {
+
+            wrongWordsDiv.innerHTML =
+                "<p>틀린 단어가 없습니다! 🎉</p>";
+
+            return;
+        }
+
+
+        wrongWords.forEach(
+            function(item) {
+
+                const p =
+                    document.createElement(
+                        "p"
+                    );
+
+
+                p.textContent =
+                    `${item.word} - ${item.answer}`;
+
+
+                wrongWordsDiv.appendChild(
+                    p
+                );
+            }
+        );
+    }
+
+
+    document
+        .getElementById(
+            "next-btn"
+        )
+        .addEventListener(
+            "click",
+            async function() {
+
+                if (
+                    currentIndex <
+                    questions.length - 1
+                ) {
+
+                    currentIndex++;
+
+                    showQuestion();
+
+                } else {
+
+                    await showFinalResult();
+
+                }
+            }
+        );
+
+
+    showQuestion();
+
+</script>
+
+</body>
+</html>

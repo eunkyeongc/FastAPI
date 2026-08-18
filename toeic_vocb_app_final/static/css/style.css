@@ -1,0 +1,172 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 30px 20px;
+
+    font-family: Arial, sans-serif;
+
+    background: #f5f7fb;
+    color: #222;
+}
+
+
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+
+.card {
+    background: white;
+
+    padding: 25px;
+    margin-bottom: 20px;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+
+.card h2 {
+    margin-top: 0;
+}
+
+
+button {
+    padding: 12px 18px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #3563e9;
+    color: white;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+button:hover {
+    opacity: 0.85;
+}
+
+
+button:disabled {
+    background: #aaa;
+    cursor: not-allowed;
+}
+
+
+.menu-button {
+    display: block;
+
+    width: 100%;
+
+    margin-bottom: 10px;
+
+    padding: 15px;
+}
+
+
+.study-card {
+    text-align: center;
+
+    background: white;
+
+    padding: 40px 25px;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+
+.study-card h2 {
+    font-size: 36px;
+
+    margin-bottom: 15px;
+}
+
+
+.meaning {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+
+.example {
+    margin-top: 30px;
+
+    line-height: 1.7;
+
+    color: #444;
+}
+
+
+.button-group {
+    display: flex;
+
+    gap: 10px;
+
+    justify-content: center;
+
+    margin-top: 20px;
+}
+
+
+.progress {
+    text-align: center;
+
+    margin-bottom: 20px;
+
+    color: #555;
+}
+
+
+.option-button {
+    display: block;
+
+    width: 100%;
+
+    margin-bottom: 10px;
+
+    text-align: left;
+}
+
+
+.result {
+    margin-top: 20px;
+
+    font-weight: bold;
+
+    text-align: center;
+}
+
+
+.wrong-count {
+    color: #d33;
+
+    font-weight: bold;
+}

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>오답 문장 테스트</title>
+
+    <link
+        rel="stylesheet"
+        href="/static/css/style.css"
+    >
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>📕 오답 문장 테스트</h1>
+
+    <p class="subtitle">
+        오답 단어를 문장으로 다시 풀어보세요.
+    </p>
+
+
+    <p
+        id="progress"
+        class="progress"
+    ></p>
+
+
+    <div
+        id="test-area"
+        class="card"
+    >
+
+        <h2
+            id="sentence"
+            style="line-height: 1.6;"
+        ></h2>
+
+
+        <div id="options"></div>
+
+
+        <p
+            id="result"
+            class="result"
+        ></p>
+
+
+        <div class="button-group">
+
+            <button
+                id="next-btn"
+                disabled
+            >
+                다음 문제
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div
+        id="final-result"
+        class="card"
+        style="display: none;"
+    >
+
+        <h2>🎉 테스트 완료</h2>
+
+
+        <p
+            id="score"
+            class="result"
+        ></p>
+
+
+        <h3>다시 틀린 단어</h3>
+
+        <div id="wrong-list"></div>
+
+
+        <div class="button-group">
+
+            <a href="/wrong-note">
+                <button>
+                    오답노트
+                </button>
+            </a>
+
+            <a href="/">
+                <button>
+                    홈으로
+                </button>
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    const questions = {{ questions | tojson }};
+
+    let currentIndex = 0;
+
+    let correctCount = 0;
+
+    const wrongWords = [];
+
+
+    async function saveTestResult(
+        wordId,
+        isCorrect
+    ) {
+
+        const response = await fetch(
+            "/wrong-test-result",
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type":
+                        "application/json"
+                },
+
+                body: JSON.stringify({
+                    word_id: wordId,
+                    is_correct: isCorrect
+                })
+            }
+        );
+
+
+        const data =
+            await response.json();
+
+
+        console.log(data);
+
+        return data;
+    }
+
+
+    function showQuestion() {
+
+        if (questions.length === 0) {
+
+            document.getElementById(
+                "test-area"
+            ).innerHTML =
+                `
+                <h2>🎉 복습할 단어가 없습니다!</h2>
+
+                <p>
+                    현재 오답노트가 비어 있습니다.
+                </p>
+
+                <a href="/">
+                    <button>
+                        홈으로
+                    </button>
+                </a>
+                `;
+
+
+            document.getElementById(
+                "progress"
+            ).textContent = "";
+
+            return;
+        }
+
+
+        const question =
+            questions[currentIndex];
+
+
+        document.getElementById(
+            "progress"
+        ).textContent =
+            `${currentIndex + 1} / ${questions.length}`;
+
+
+        document.getElementById(
+            "sentence"
+        ).textContent =
+            question.sentence;
+
+
+        document.getElementById(
+            "result"
+        ).textContent = "";
+
+
+        document.getElementById(
+            "next-btn"
+        ).disabled =
+            true;
+
+
+        const optionsDiv =
+            document.getElementById(
+                "options"
+            );
+
+
+        optionsDiv.innerHTML =
+            "";
+
+
+        question.options.forEach(
+            function(option) {
+
+                const button =
+                    document.createElement(
+                        "button"
+                    );
+
+
+                button.textContent =
+                    option;
+
+
+                button.className =
+                    "option-button";
+
+
+                button.addEventListener(
+                    "click",
+                    function() {
+
+                        checkAnswer(
+                            option
+                        );
+
+                    }
+                );
+
+
+                optionsDiv.appendChild(
+                    button
+                );
+
+            }
+        );
+    }
+
+
+    async function checkAnswer(
+        selectedOption
+    ) {
+
+        const question =
+            questions[currentIndex];
+
+
+        const result =
+            document.getElementById(
+                "result"
+            );
+
+
+        const buttons =
+            document
+                .getElementById(
+                    "options"
+                )
+                .querySelectorAll(
+                    "button"
+                );
+
+
+        buttons.forEach(
+            function(button) {
+
+                button.disabled =
+                    true;
+
+            }
+        );
+
+
+        if (
+            selectedOption ===
+            question.answer
+        ) {
+
+            correctCount++;
+
+
+            const data =
+                await saveTestResult(
+                    question.word_id,
+                    true
+                );
+
+
+            if (
+                data.status ===
+                "mastered"
+            ) {
+
+                result.textContent =
+                    `🎉 정답! ${question.answer} 단어를 완전히 암기했습니다!`;
+
+            } else {
+
+                result.textContent =
+                    `정답입니다! 연속 정답 ${data.correct_streak} / 3`;
+
+            }
+
+        } else {
+
+            await saveTestResult(
+                question.word_id,
+                false
+            );
+
+
+            result.textContent =
+                `오답입니다. 정답: ${question.answer} (${question.meaning})`;
+
+
+            wrongWords.push({
+
+                word_id:
+                    question.word_id,
+
+                word:
+                    question.answer,
+
+                meaning:
+                    question.meaning
+
+            });
+
+        }
+
+
+        document.getElementById(
+            "next-btn"
+        ).disabled =
+            false;
+    }
+
+
+    function  {
+
+        document.getElementById(
+            "test-area"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "progress"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "final-result"
+        ).style.display =
+            "block";
+
+
+        document.getElementById(
+            "score"
+        ).textContent =
+            `${questions.length}문제 중 ${correctCount}문제 정답`;
+
+
+        const wrongList =
+            document.getElementById(
+                "wrong-list"
+            );
+
+
+        wrongList.innerHTML =
+            "";
+
+
+        if (
+            wrongWords.length === 0
+        ) {
+
+            wrongList.innerHTML =
+                "<p>모든 문제를 맞혔습니다! 🎉</p>";
+
+            return;
+        }
+
+
+        wrongWords.forEach(
+            function(item) {
+
+                const p =
+                    document.createElement(
+                        "p"
+                    );
+
+
+                p.textContent =
+                    `${item.word} - ${item.meaning}`;
+
+
+                wrongList.appendChild(
+                    p
+                );
+
+            }
+        );
+    }
+
+
+    document
+        .getElementById(
+            "next-btn"
+        )
+        .addEventListener(
+            "click",
+            function() {
+
+                if (
+                    currentIndex <
+                    questions.length - 1
+                ) {
+
+                    currentIndex++;
+
+                    showQuestion();
+
+                } else {
+
+                    showFinalResult();
+
+                }
+
+            }
+        );
+
+
+    showQuestion();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>TOEIC 단어 학습</title>
+
+    <link
+        rel="stylesheet"
+        href="/static/css/style.css"
+    >
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>📚 오늘의 TOEIC 단어</h1>
+
+    <p class="subtitle">
+        하루 20개씩 천천히 학습해보세요.
+    </p>
+
+
+    <div class="card">
+
+        <h2>난이도 선택</h2>
+
+        <div class="button-group">
+
+            <a href="/study?level=basic&day=1">
+                <button>기초</button>
+            </a>
+
+            <a href="/study?level=intermediate&day=1">
+                <button>중급</button>
+            </a>
+
+            <a href="/study?level=advanced&day=1">
+                <button>고급</button>
+            </a>
+
+        </div>
+
+
+        <p class="progress">
+            현재 난이도:
+            <strong>{{ level }}</strong>
+        </p>
+
+        <p class="progress">
+            현재 학습:
+            <strong>Day {{ day }}</strong>
+        </p>
+
+
+        <div class="button-group">
+
+            {% for day_number in range(1, total_days + 1) %}
+
+                <a href="/study?level={{ level }}&day={{ day_number }}">
+                    <button>
+                        Day {{ day_number }}
+                    </button>
+                </a>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+
+    <p
+        id="today-progress"
+        class="progress"
+    ></p>
+
+    <p
+        id="progress"
+        class="progress"
+    ></p>
+
+
+    <div class="study-card">
+
+        <h2 id="word"></h2>
+
+        <p
+            id="meaning"
+            class="meaning"
+        ></p>
+
+
+        <div class="example">
+
+            <p id="example-sentence"></p>
+
+            <p id="example-translation"></p>
+
+        </div>
+
+    </div>
+
+
+    <div class="button-group">
+
+        <button id="know-btn">
+            알아요
+        </button>
+
+        <button id="dont-know-btn">
+            모르겠어요
+        </button>
+
+    </div>
+
+
+    <p
+        id="study-result"
+        class="result"
+    ></p>
+
+
+    <div class="button-group">
+
+        <button id="prev-btn">
+            이전
+        </button>
+
+        <button id="next-btn">
+            다음
+        </button>
+
+    </div>
+
+
+    <div class="button-group">
+
+        <button id="complete-btn">
+            학습 완료
+        </button>
+
+    </div>
+
+
+    <div class="button-group">
+
+        <a href="/">
+            <button>
+                홈으로
+            </button>
+        </a>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    const words = {{ words | tojson }};
+
+    let currentIndex = 0;
+
+    const studyStatus = {};
+
+
+    async function saveStudyStatus(wordId, status) {
+
+        const response = await fetch(
+            "/study-status",
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+                    word_id: wordId,
+                    status: status
+                })
+            }
+        );
+
+        const result = await response.json();
+
+        console.log(result);
+    }
+
+
+    async function loadTodayProgress() {
+
+        const response = await fetch(
+            "/today-progress"
+        );
+
+        const data = await response.json();
+
+        document.getElementById(
+            "today-progress"
+        ).textContent =
+            `오늘 학습: ${data.studied_count} / ${data.daily_goal}`;
+    }
+
+
+    function showWord() {
+
+        if (words.length === 0) {
+
+            document.getElementById(
+                "word"
+            ).textContent =
+                "학습할 단어가 없습니다.";
+
+            document.getElementById(
+                "meaning"
+            ).textContent = "";
+
+            document.getElementById(
+                "example-sentence"
+            ).textContent = "";
+
+            document.getElementById(
+                "example-translation"
+            ).textContent = "";
+
+            document.getElementById(
+                "progress"
+            ).textContent =
+                "0 / 0";
+
+            document.getElementById(
+                "know-btn"
+            ).disabled = true;
+
+            document.getElementById(
+                "dont-know-btn"
+            ).disabled = true;
+
+            document.getElementById(
+                "prev-btn"
+            ).disabled = true;
+
+            document.getElementById(
+                "next-btn"
+            ).disabled = true;
+
+            return;
+        }
+
+
+        const currentWord =
+            words[currentIndex];
+
+
+        document.getElementById(
+            "word"
+        ).textContent =
+            currentWord.word;
+
+
+        document.getElementById(
+            "meaning"
+        ).textContent =
+            currentWord.meaning;
+
+
+        document.getElementById(
+            "example-sentence"
+        ).textContent =
+            currentWord.example_sentence;
+
+
+        document.getElementById(
+            "example-translation"
+        ).textContent =
+            currentWord.example_translation;
+
+
+        document.getElementById(
+            "progress"
+        ).textContent =
+            `${currentIndex + 1} / ${words.length}`;
+
+
+        document.getElementById(
+            "prev-btn"
+        ).disabled =
+            currentIndex === 0;
+
+
+        document.getElementById(
+            "next-btn"
+        ).disabled =
+            currentIndex === words.length - 1;
+
+
+        showStudyResult();
+    }
+
+
+    function showStudyResult() {
+
+        if (words.length === 0) {
+            return;
+        }
+
+
+        const currentWord =
+            words[currentIndex];
+
+        const status =
+            studyStatus[currentWord.id];
+
+
+        if (status === "know") {
+
+            document.getElementById(
+                "study-result"
+            ).textContent =
+                "현재 상태: 알아요";
+
+        } else if (status === "dont_know") {
+
+            document.getElementById(
+                "study-result"
+            ).textContent =
+                "현재 상태: 모르겠어요";
+
+        } else {
+
+            document.getElementById(
+                "study-result"
+            ).textContent =
+                "현재 상태: 아직 선택하지 않았습니다.";
+
+        }
+    }
+
+
+    document
+        .getElementById("know-btn")
+        .addEventListener(
+            "click",
+            async function () {
+
+                const currentWord =
+                    words[currentIndex];
+
+
+                studyStatus[currentWord.id] =
+                    "know";
+
+
+                await saveStudyStatus(
+                    currentWord.id,
+                    "know"
+                );
+
+
+                await loadTodayProgress();
+
+                showStudyResult();
+
+                // 마지막 단어가 아니면 자동으로 다음 단어
+                if (
+                    currentIndex <
+                    words.length - 1
+                ) {
+
+                    currentIndex++;
+
+                    showWord();
+
+                } else {
+
+                    alert(
+                        "오늘의 단어 학습이 끝났습니다!"
+                    );
+
+                }
+
+            }
+        );
+
+
+    document
+        .getElementById("dont-know-btn")
+        .addEventListener(
+            "click",
+            async function () {
+
+                const currentWord =
+                    words[currentIndex];
+
+
+                studyStatus[currentWord.id] =
+                    "dont_know";
+
+
+                await saveStudyStatus(
+                    currentWord.id,
+                    "dont_know"
+                );
+
+
+                await loadTodayProgress();
+
+                showStudyResult();
+
+                // 마지막 단어가 아니면 자동으로 다음 단어
+                if (
+                    currentIndex <
+                    words.length - 1
+                ) {
+
+                    currentIndex++;
+
+                    showWord();
+
+                } else {
+
+                    alert(
+                        "오늘의 단어 학습이 끝났습니다!"
+                    );
+
+                }
+            }
+        );
+
+
+    document
+        .getElementById("prev-btn")
+        .addEventListener(
+            "click",
+            function () {
+
+                if (currentIndex > 0) {
+
+                    currentIndex--;
+
+                    showWord();
+                }
+            }
+        );
+
+
+    document
+        .getElementById("next-btn")
+        .addEventListener(
+            "click",
+            function () {
+
+                if (
+                    currentIndex <
+                    words.length - 1
+                ) {
+
+                    currentIndex++;
+
+                    showWord();
+                }
+            }
+        );
+
+    document
+        .getElementById("complete-btn")
+        .addEventListener(
+            "click",
+            function () {
+
+                const currentDay = {{ day }};
+                const currentLevel = "{{ level }}";
+
+                const moveToTest = confirm(
+                    "학습을 완료했습니다!\n단어 테스트를 시작할까요?"
+                );
+
+                if (moveToTest) {
+
+                    window.location.href =
+                        `/word-test?level=${currentLevel}&day=${currentDay}`;
+
+                }
+
+            }
+        );
+
+    showWord();
+
+    loadTodayProgress();
+
+</script>
+
+</body>
+</html>

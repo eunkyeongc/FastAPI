@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>TOEIC 오답노트</title>
+
+    <link
+        rel="stylesheet"
+        href="/static/css/style.css"
+    >
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>📕 오답노트</h1>
+
+    <p class="subtitle">
+        틀린 단어를 다시 복습해보세요.
+    </p>
+
+
+    <div class="card">
+
+        <h2>현재 학습 현황</h2>
+
+        <p>
+            오답 단어:
+            <strong>{{ wrong_words | length }}개</strong>
+        </p>
+
+    </div>
+
+
+    {% if wrong_words %}
+
+        {% for item in wrong_words %}
+
+            <div class="card">
+
+                <h2>
+                    {{ item.word }}
+                </h2>
+
+                <p class="meaning">
+                    {{ item.meaning }}
+                </p>
+
+
+                <div class="example">
+
+                    <p>
+                        {{ item.example_sentence }}
+                    </p>
+
+                    <p>
+                        {{ item.example_translation }}
+                    </p>
+
+                </div>
+
+
+                <p>
+                    틀린 횟수:
+
+                    <span class="wrong-count">
+                        {{ item.wrong_count }}회
+                    </span>
+                </p>
+
+
+                <p>
+                    연속 정답:
+
+                    <strong>
+                        {{ item.correct_streak }} / 3
+                    </strong>
+                </p>
+
+            </div>
+
+        {% endfor %}
+
+
+        <div class="card">
+
+            <h2>📝 오답 재시험</h2>
+
+            <p>
+                오답 단어를 문장 문제로 다시 풀어보세요.
+            </p>
+
+
+            <a href="/wrong-test">
+
+                <button class="menu-button">
+                    오답 문장 테스트 시작
+                </button>
+
+            </a>
+
+        </div>
+
+
+    {% else %}
+
+        <div class="card">
+
+            <h2>🎉 오답노트가 비어 있습니다!</h2>
+
+            <p>
+                현재 복습할 단어가 없습니다.
+            </p>
+
+        </div>
+
+    {% endif %}
+
+
+    <div class="button-group">
+
+        <a href="/study">
+            <button>
+                단어 학습
+            </button>
+        </a>
+
+        <a href="/">
+            <button>
+                홈으로
+            </button>
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

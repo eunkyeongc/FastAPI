@@ -1,0 +1,601 @@
+﻿word,meaning,level,example_sentence,example_translation
+employee,"직원, 종업원",basic,The manager reviewed the employee before the meeting.,"관리자는 회의 전에 '직원, 종업원' 관련 내용을 검토했습니다."
+employer,고용주,basic,Please check the employer before you leave the office.,사무실을 떠나기 전에 '고용주' 관련 내용을 확인해 주세요.
+company,회사,basic,The company was mentioned in the company announcement.,회사 공지에서 '회사' 관련 내용이 언급되었습니다.
+office,사무실,basic,We discussed the office during the morning meeting.,우리는 오전 회의에서 '사무실' 관련 내용을 논의했습니다.
+meeting,회의,basic,The staff prepared the meeting for today's schedule.,직원들은 오늘 일정에 맞춰 '회의' 관련 내용을 준비했습니다.
+customer,고객,basic,The manager reviewed the customer before the meeting.,관리자는 회의 전에 '고객' 관련 내용을 검토했습니다.
+client,"고객, 의뢰인",basic,Please check the client before you leave the office.,"사무실을 떠나기 전에 '고객, 의뢰인' 관련 내용을 확인해 주세요."
+manager,"관리자, 부장",basic,The manager was mentioned in the company announcement.,"회사 공지에서 '관리자, 부장' 관련 내용이 언급되었습니다."
+staff,"직원, 직원들",basic,We discussed the staff during the morning meeting.,"우리는 오전 회의에서 '직원, 직원들' 관련 내용을 논의했습니다."
+team,팀,basic,The staff prepared the team for today's schedule.,직원들은 오늘 일정에 맞춰 '팀' 관련 내용을 준비했습니다.
+department,부서,basic,The manager reviewed the department before the meeting.,관리자는 회의 전에 '부서' 관련 내용을 검토했습니다.
+business,"사업, 업무",basic,Please check the business before you leave the office.,"사무실을 떠나기 전에 '사업, 업무' 관련 내용을 확인해 주세요."
+job,"직업, 일",basic,The job was mentioned in the company announcement.,"회사 공지에서 '직업, 일' 관련 내용이 언급되었습니다."
+work,"일, 업무",basic,We discussed the work during the morning meeting.,"우리는 오전 회의에서 '일, 업무' 관련 내용을 논의했습니다."
+career,"경력, 직업",basic,The staff prepared the career for today's schedule.,"직원들은 오늘 일정에 맞춰 '경력, 직업' 관련 내용을 준비했습니다."
+position,"직위, 자리",basic,The manager reviewed the position before the meeting.,"관리자는 회의 전에 '직위, 자리' 관련 내용을 검토했습니다."
+applicant,지원자,basic,Please check the applicant before you leave the office.,사무실을 떠나기 전에 '지원자' 관련 내용을 확인해 주세요.
+candidate,"지원자, 후보자",basic,The candidate was mentioned in the company announcement.,"회사 공지에서 '지원자, 후보자' 관련 내용이 언급되었습니다."
+interview,면접,basic,We discussed the interview during the morning meeting.,우리는 오전 회의에서 '면접' 관련 내용을 논의했습니다.
+resume,이력서,basic,The staff prepared the resume for today's schedule.,직원들은 오늘 일정에 맞춰 '이력서' 관련 내용을 준비했습니다.
+application,"지원서, 신청서",basic,The manager reviewed the application before the meeting.,"관리자는 회의 전에 '지원서, 신청서' 관련 내용을 검토했습니다."
+salary,급여,basic,Please check the salary before you leave the office.,사무실을 떠나기 전에 '급여' 관련 내용을 확인해 주세요.
+wage,임금,basic,The wage was mentioned in the company announcement.,회사 공지에서 '임금' 관련 내용이 언급되었습니다.
+bonus,상여금,basic,We discussed the bonus during the morning meeting.,우리는 오전 회의에서 '상여금' 관련 내용을 논의했습니다.
+benefit,"혜택, 복리후생",basic,The staff prepared the benefit for today's schedule.,"직원들은 오늘 일정에 맞춰 '혜택, 복리후생' 관련 내용을 준비했습니다."
+vacation,휴가,basic,The manager reviewed the vacation before the meeting.,관리자는 회의 전에 '휴가' 관련 내용을 검토했습니다.
+holiday,휴일,basic,Please check the holiday before you leave the office.,사무실을 떠나기 전에 '휴일' 관련 내용을 확인해 주세요.
+schedule,일정,basic,The schedule was mentioned in the company announcement.,회사 공지에서 '일정' 관련 내용이 언급되었습니다.
+shift,"근무조, 교대",basic,We discussed the shift during the morning meeting.,"우리는 오전 회의에서 '근무조, 교대' 관련 내용을 논의했습니다."
+training,"교육, 훈련",basic,The staff prepared the training for today's schedule.,"직원들은 오늘 일정에 맞춰 '교육, 훈련' 관련 내용을 준비했습니다."
+skill,"기술, 능력",basic,The manager reviewed the skill before the meeting.,"관리자는 회의 전에 '기술, 능력' 관련 내용을 검토했습니다."
+experience,경험,basic,Please check the experience before you leave the office.,사무실을 떠나기 전에 '경험' 관련 내용을 확인해 주세요.
+ability,능력,basic,The ability was mentioned in the company announcement.,회사 공지에서 '능력' 관련 내용이 언급되었습니다.
+responsibility,책임,basic,We discussed the responsibility during the morning meeting.,우리는 오전 회의에서 '책임' 관련 내용을 논의했습니다.
+task,"업무, 과제",basic,The staff prepared the task for today's schedule.,"직원들은 오늘 일정에 맞춰 '업무, 과제' 관련 내용을 준비했습니다."
+project,프로젝트,basic,The manager reviewed the project before the meeting.,관리자는 회의 전에 '프로젝트' 관련 내용을 검토했습니다.
+plan,계획,basic,Please check the plan before you leave the office.,사무실을 떠나기 전에 '계획' 관련 내용을 확인해 주세요.
+goal,목표,basic,The goal was mentioned in the company announcement.,회사 공지에서 '목표' 관련 내용이 언급되었습니다.
+result,결과,basic,We discussed the result during the morning meeting.,우리는 오전 회의에서 '결과' 관련 내용을 논의했습니다.
+report,보고서,basic,The staff prepared the report for today's schedule.,직원들은 오늘 일정에 맞춰 '보고서' 관련 내용을 준비했습니다.
+document,문서,basic,The manager reviewed the document before the meeting.,관리자는 회의 전에 '문서' 관련 내용을 검토했습니다.
+file,"파일, 서류",basic,Please check the file before you leave the office.,"사무실을 떠나기 전에 '파일, 서류' 관련 내용을 확인해 주세요."
+record,기록,basic,The record was mentioned in the company announcement.,회사 공지에서 '기록' 관련 내용이 언급되었습니다.
+information,정보,basic,We discussed the information during the morning meeting.,우리는 오전 회의에서 '정보' 관련 내용을 논의했습니다.
+data,"자료, 데이터",basic,The staff prepared the data for today's schedule.,"직원들은 오늘 일정에 맞춰 '자료, 데이터' 관련 내용을 준비했습니다."
+detail,세부사항,basic,The manager reviewed the detail before the meeting.,관리자는 회의 전에 '세부사항' 관련 내용을 검토했습니다.
+notice,"공지, 통지",basic,Please check the notice before you leave the office.,"사무실을 떠나기 전에 '공지, 통지' 관련 내용을 확인해 주세요."
+announcement,"발표, 공지",basic,The announcement was mentioned in the company announcement.,"회사 공지에서 '발표, 공지' 관련 내용이 언급되었습니다."
+message,메시지,basic,We discussed the message during the morning meeting.,우리는 오전 회의에서 '메시지' 관련 내용을 논의했습니다.
+email,이메일,basic,The staff prepared the email for today's schedule.,직원들은 오늘 일정에 맞춰 '이메일' 관련 내용을 준비했습니다.
+letter,편지,basic,The manager reviewed the letter before the meeting.,관리자는 회의 전에 '편지' 관련 내용을 검토했습니다.
+mail,"우편, 메일",basic,Please check the mail before you leave the office.,"사무실을 떠나기 전에 '우편, 메일' 관련 내용을 확인해 주세요."
+phone,전화,basic,The phone was mentioned in the company announcement.,회사 공지에서 '전화' 관련 내용이 언급되었습니다.
+call,"전화, 통화",basic,We discussed the call during the morning meeting.,"우리는 오전 회의에서 '전화, 통화' 관련 내용을 논의했습니다."
+contact,"연락, 연락처",basic,The staff prepared the contact for today's schedule.,"직원들은 오늘 일정에 맞춰 '연락, 연락처' 관련 내용을 준비했습니다."
+address,주소,basic,The manager reviewed the address before the meeting.,관리자는 회의 전에 '주소' 관련 내용을 검토했습니다.
+name,이름,basic,Please check the name before you leave the office.,사무실을 떠나기 전에 '이름' 관련 내용을 확인해 주세요.
+number,"번호, 수",basic,The number was mentioned in the company announcement.,"회사 공지에서 '번호, 수' 관련 내용이 언급되었습니다."
+date,날짜,basic,We discussed the date during the morning meeting.,우리는 오전 회의에서 '날짜' 관련 내용을 논의했습니다.
+time,시간,basic,The staff prepared the time for today's schedule.,직원들은 오늘 일정에 맞춰 '시간' 관련 내용을 준비했습니다.
+place,장소,basic,The manager reviewed the place before the meeting.,관리자는 회의 전에 '장소' 관련 내용을 검토했습니다.
+location,"위치, 장소",basic,Please check the location before you leave the office.,"사무실을 떠나기 전에 '위치, 장소' 관련 내용을 확인해 주세요."
+building,건물,basic,The building was mentioned in the company announcement.,회사 공지에서 '건물' 관련 내용이 언급되었습니다.
+floor,"층, 바닥",basic,We discussed the floor during the morning meeting.,"우리는 오전 회의에서 '층, 바닥' 관련 내용을 논의했습니다."
+room,"방, 회의실",basic,The staff prepared the room for today's schedule.,"직원들은 오늘 일정에 맞춰 '방, 회의실' 관련 내용을 준비했습니다."
+desk,책상,basic,The manager reviewed the desk before the meeting.,관리자는 회의 전에 '책상' 관련 내용을 검토했습니다.
+chair,의자,basic,Please check the chair before you leave the office.,사무실을 떠나기 전에 '의자' 관련 내용을 확인해 주세요.
+computer,컴퓨터,basic,The computer was mentioned in the company announcement.,회사 공지에서 '컴퓨터' 관련 내용이 언급되었습니다.
+printer,프린터,basic,We discussed the printer during the morning meeting.,우리는 오전 회의에서 '프린터' 관련 내용을 논의했습니다.
+machine,기계,basic,The staff prepared the machine for today's schedule.,직원들은 오늘 일정에 맞춰 '기계' 관련 내용을 준비했습니다.
+equipment,장비,basic,The manager reviewed the equipment before the meeting.,관리자는 회의 전에 '장비' 관련 내용을 검토했습니다.
+device,장치,basic,Please check the device before you leave the office.,사무실을 떠나기 전에 '장치' 관련 내용을 확인해 주세요.
+system,시스템,basic,The system was mentioned in the company announcement.,회사 공지에서 '시스템' 관련 내용이 언급되었습니다.
+software,소프트웨어,basic,We discussed the software during the morning meeting.,우리는 오전 회의에서 '소프트웨어' 관련 내용을 논의했습니다.
+website,웹사이트,basic,The staff prepared the website for today's schedule.,직원들은 오늘 일정에 맞춰 '웹사이트' 관련 내용을 준비했습니다.
+internet,인터넷,basic,The manager reviewed the internet before the meeting.,관리자는 회의 전에 '인터넷' 관련 내용을 검토했습니다.
+network,네트워크,basic,Please check the network before you leave the office.,사무실을 떠나기 전에 '네트워크' 관련 내용을 확인해 주세요.
+password,비밀번호,basic,The password was mentioned in the company announcement.,회사 공지에서 '비밀번호' 관련 내용이 언급되었습니다.
+account,계정,basic,We discussed the account during the morning meeting.,우리는 오전 회의에서 '계정' 관련 내용을 논의했습니다.
+service,서비스,basic,The staff prepared the service for today's schedule.,직원들은 오늘 일정에 맞춰 '서비스' 관련 내용을 준비했습니다.
+product,제품,basic,The manager reviewed the product before the meeting.,관리자는 회의 전에 '제품' 관련 내용을 검토했습니다.
+item,"품목, 물건",basic,Please check the item before you leave the office.,"사무실을 떠나기 전에 '품목, 물건' 관련 내용을 확인해 주세요."
+goods,상품,basic,The goods was mentioned in the company announcement.,회사 공지에서 '상품' 관련 내용이 언급되었습니다.
+order,주문,basic,We discussed the order during the morning meeting.,우리는 오전 회의에서 '주문' 관련 내용을 논의했습니다.
+purchase,구매,basic,The staff prepared the purchase for today's schedule.,직원들은 오늘 일정에 맞춰 '구매' 관련 내용을 준비했습니다.
+sale,"판매, 할인",basic,The manager reviewed the sale before the meeting.,"관리자는 회의 전에 '판매, 할인' 관련 내용을 검토했습니다."
+price,가격,basic,Please check the price before you leave the office.,사무실을 떠나기 전에 '가격' 관련 내용을 확인해 주세요.
+cost,비용,basic,The cost was mentioned in the company announcement.,회사 공지에서 '비용' 관련 내용이 언급되었습니다.
+fee,"요금, 수수료",basic,We discussed the fee during the morning meeting.,"우리는 오전 회의에서 '요금, 수수료' 관련 내용을 논의했습니다."
+charge,"요금, 비용",basic,The staff prepared the charge for today's schedule.,"직원들은 오늘 일정에 맞춰 '요금, 비용' 관련 내용을 준비했습니다."
+payment,"지불, 결제",basic,The manager reviewed the payment before the meeting.,"관리자는 회의 전에 '지불, 결제' 관련 내용을 검토했습니다."
+cash,현금,basic,Please check the cash before you leave the office.,사무실을 떠나기 전에 '현금' 관련 내용을 확인해 주세요.
+credit,"신용, 외상",basic,The credit was mentioned in the company announcement.,"회사 공지에서 '신용, 외상' 관련 내용이 언급되었습니다."
+card,카드,basic,We discussed the card during the morning meeting.,우리는 오전 회의에서 '카드' 관련 내용을 논의했습니다.
+bill,청구서,basic,The staff prepared the bill for today's schedule.,직원들은 오늘 일정에 맞춰 '청구서' 관련 내용을 준비했습니다.
+invoice,"송장, 청구서",basic,The manager reviewed the invoice before the meeting.,"관리자는 회의 전에 '송장, 청구서' 관련 내용을 검토했습니다."
+receipt,영수증,basic,Please check the receipt before you leave the office.,사무실을 떠나기 전에 '영수증' 관련 내용을 확인해 주세요.
+refund,환불,basic,The refund was mentioned in the company announcement.,회사 공지에서 '환불' 관련 내용이 언급되었습니다.
+discount,할인,basic,We discussed the discount during the morning meeting.,우리는 오전 회의에서 '할인' 관련 내용을 논의했습니다.
+coupon,쿠폰,basic,The staff prepared the coupon for today's schedule.,직원들은 오늘 일정에 맞춰 '쿠폰' 관련 내용을 준비했습니다.
+budget,예산,basic,The manager reviewed the budget before the meeting.,관리자는 회의 전에 '예산' 관련 내용을 검토했습니다.
+money,돈,basic,Please check the money before you leave the office.,사무실을 떠나기 전에 '돈' 관련 내용을 확인해 주세요.
+bank,은행,basic,The bank was mentioned in the company announcement.,회사 공지에서 '은행' 관련 내용이 언급되었습니다.
+branch,지점,basic,We discussed the branch during the morning meeting.,우리는 오전 회의에서 '지점' 관련 내용을 논의했습니다.
+loan,대출,basic,The staff prepared the loan for today's schedule.,직원들은 오늘 일정에 맞춰 '대출' 관련 내용을 준비했습니다.
+interest,"이자, 관심",basic,The manager reviewed the interest before the meeting.,"관리자는 회의 전에 '이자, 관심' 관련 내용을 검토했습니다."
+tax,세금,basic,Please check the tax before you leave the office.,사무실을 떠나기 전에 '세금' 관련 내용을 확인해 주세요.
+income,소득,basic,The income was mentioned in the company announcement.,회사 공지에서 '소득' 관련 내용이 언급되었습니다.
+profit,이익,basic,We discussed the profit during the morning meeting.,우리는 오전 회의에서 '이익' 관련 내용을 논의했습니다.
+loss,손실,basic,The staff prepared the loss for today's schedule.,직원들은 오늘 일정에 맞춰 '손실' 관련 내용을 준비했습니다.
+market,시장,basic,The manager reviewed the market before the meeting.,관리자는 회의 전에 '시장' 관련 내용을 검토했습니다.
+shop,가게,basic,Please check the shop before you leave the office.,사무실을 떠나기 전에 '가게' 관련 내용을 확인해 주세요.
+store,상점,basic,The store was mentioned in the company announcement.,회사 공지에서 '상점' 관련 내용이 언급되었습니다.
+restaurant,식당,basic,We discussed the restaurant during the morning meeting.,우리는 오전 회의에서 '식당' 관련 내용을 논의했습니다.
+hotel,호텔,basic,The staff prepared the hotel for today's schedule.,직원들은 오늘 일정에 맞춰 '호텔' 관련 내용을 준비했습니다.
+reservation,예약,basic,The manager reviewed the reservation before the meeting.,관리자는 회의 전에 '예약' 관련 내용을 검토했습니다.
+ticket,"표, 티켓",basic,Please check the ticket before you leave the office.,"사무실을 떠나기 전에 '표, 티켓' 관련 내용을 확인해 주세요."
+trip,여행,basic,The trip was mentioned in the company announcement.,회사 공지에서 '여행' 관련 내용이 언급되었습니다.
+travel,여행,basic,We discussed the travel during the morning meeting.,우리는 오전 회의에서 '여행' 관련 내용을 논의했습니다.
+tour,"여행, 관광",basic,The staff prepared the tour for today's schedule.,"직원들은 오늘 일정에 맞춰 '여행, 관광' 관련 내용을 준비했습니다."
+flight,항공편,basic,The manager reviewed the flight before the meeting.,관리자는 회의 전에 '항공편' 관련 내용을 검토했습니다.
+airport,공항,basic,Please check the airport before you leave the office.,사무실을 떠나기 전에 '공항' 관련 내용을 확인해 주세요.
+airline,항공사,basic,The airline was mentioned in the company announcement.,회사 공지에서 '항공사' 관련 내용이 언급되었습니다.
+train,기차,basic,We discussed the train during the morning meeting.,우리는 오전 회의에서 '기차' 관련 내용을 논의했습니다.
+station,역,basic,The staff prepared the station for today's schedule.,직원들은 오늘 일정에 맞춰 '역' 관련 내용을 준비했습니다.
+bus,버스,basic,The manager reviewed the bus before the meeting.,관리자는 회의 전에 '버스' 관련 내용을 검토했습니다.
+taxi,택시,basic,Please check the taxi before you leave the office.,사무실을 떠나기 전에 '택시' 관련 내용을 확인해 주세요.
+car,자동차,basic,The car was mentioned in the company announcement.,회사 공지에서 '자동차' 관련 내용이 언급되었습니다.
+vehicle,차량,basic,We discussed the vehicle during the morning meeting.,우리는 오전 회의에서 '차량' 관련 내용을 논의했습니다.
+road,도로,basic,The staff prepared the road for today's schedule.,직원들은 오늘 일정에 맞춰 '도로' 관련 내용을 준비했습니다.
+traffic,교통,basic,The manager reviewed the traffic before the meeting.,관리자는 회의 전에 '교통' 관련 내용을 검토했습니다.
+parking,주차,basic,Please check the parking before you leave the office.,사무실을 떠나기 전에 '주차' 관련 내용을 확인해 주세요.
+delivery,배송,basic,The delivery was mentioned in the company announcement.,회사 공지에서 '배송' 관련 내용이 언급되었습니다.
+package,"소포, 포장",basic,We discussed the package during the morning meeting.,"우리는 오전 회의에서 '소포, 포장' 관련 내용을 논의했습니다."
+box,상자,basic,The staff prepared the box for today's schedule.,직원들은 오늘 일정에 맞춰 '상자' 관련 내용을 준비했습니다.
+shipment,"배송, 선적",basic,The manager reviewed the shipment before the meeting.,"관리자는 회의 전에 '배송, 선적' 관련 내용을 검토했습니다."
+warehouse,창고,basic,Please check the warehouse before you leave the office.,사무실을 떠나기 전에 '창고' 관련 내용을 확인해 주세요.
+factory,공장,basic,The factory was mentioned in the company announcement.,회사 공지에서 '공장' 관련 내용이 언급되었습니다.
+production,생산,basic,We discussed the production during the morning meeting.,우리는 오전 회의에서 '생산' 관련 내용을 논의했습니다.
+material,"재료, 자재",basic,The staff prepared the material for today's schedule.,"직원들은 오늘 일정에 맞춰 '재료, 자재' 관련 내용을 준비했습니다."
+supply,"공급품, 공급",basic,The manager reviewed the supply before the meeting.,"관리자는 회의 전에 '공급품, 공급' 관련 내용을 검토했습니다."
+stock,재고,basic,Please check the stock before you leave the office.,사무실을 떠나기 전에 '재고' 관련 내용을 확인해 주세요.
+inventory,재고 목록,basic,The inventory was mentioned in the company announcement.,회사 공지에서 '재고 목록' 관련 내용이 언급되었습니다.
+quality,품질,basic,We discussed the quality during the morning meeting.,우리는 오전 회의에서 '품질' 관련 내용을 논의했습니다.
+quantity,수량,basic,The staff prepared the quantity for today's schedule.,직원들은 오늘 일정에 맞춰 '수량' 관련 내용을 준비했습니다.
+size,크기,basic,The manager reviewed the size before the meeting.,관리자는 회의 전에 '크기' 관련 내용을 검토했습니다.
+color,색상,basic,Please check the color before you leave the office.,사무실을 떠나기 전에 '색상' 관련 내용을 확인해 주세요.
+design,디자인,basic,The design was mentioned in the company announcement.,회사 공지에서 '디자인' 관련 내용이 언급되었습니다.
+model,"모델, 유형",basic,We discussed the model during the morning meeting.,"우리는 오전 회의에서 '모델, 유형' 관련 내용을 논의했습니다."
+sample,"견본, 샘플",basic,The staff prepared the sample for today's schedule.,"직원들은 오늘 일정에 맞춰 '견본, 샘플' 관련 내용을 준비했습니다."
+catalog,카탈로그,basic,The manager reviewed the catalog before the meeting.,관리자는 회의 전에 '카탈로그' 관련 내용을 검토했습니다.
+brand,브랜드,basic,Please check the brand before you leave the office.,사무실을 떠나기 전에 '브랜드' 관련 내용을 확인해 주세요.
+advertisement,광고,basic,The advertisement was mentioned in the company announcement.,회사 공지에서 '광고' 관련 내용이 언급되었습니다.
+marketing,마케팅,basic,We discussed the marketing during the morning meeting.,우리는 오전 회의에서 '마케팅' 관련 내용을 논의했습니다.
+promotion,"홍보, 판촉",basic,The staff prepared the promotion for today's schedule.,"직원들은 오늘 일정에 맞춰 '홍보, 판촉' 관련 내용을 준비했습니다."
+event,행사,basic,The manager reviewed the event before the meeting.,관리자는 회의 전에 '행사' 관련 내용을 검토했습니다.
+conference,"회의, 학회",basic,Please check the conference before you leave the office.,"사무실을 떠나기 전에 '회의, 학회' 관련 내용을 확인해 주세요."
+seminar,세미나,basic,The seminar was mentioned in the company announcement.,회사 공지에서 '세미나' 관련 내용이 언급되었습니다.
+workshop,워크숍,basic,We discussed the workshop during the morning meeting.,우리는 오전 회의에서 '워크숍' 관련 내용을 논의했습니다.
+presentation,발표,basic,The staff prepared the presentation for today's schedule.,직원들은 오늘 일정에 맞춰 '발표' 관련 내용을 준비했습니다.
+speech,연설,basic,The manager reviewed the speech before the meeting.,관리자는 회의 전에 '연설' 관련 내용을 검토했습니다.
+lecture,강의,basic,Please check the lecture before you leave the office.,사무실을 떠나기 전에 '강의' 관련 내용을 확인해 주세요.
+class,수업,basic,The class was mentioned in the company announcement.,회사 공지에서 '수업' 관련 내용이 언급되었습니다.
+course,"과정, 강좌",basic,We discussed the course during the morning meeting.,"우리는 오전 회의에서 '과정, 강좌' 관련 내용을 논의했습니다."
+student,학생,basic,The staff prepared the student for today's schedule.,직원들은 오늘 일정에 맞춰 '학생' 관련 내용을 준비했습니다.
+teacher,교사,basic,The manager reviewed the teacher before the meeting.,관리자는 회의 전에 '교사' 관련 내용을 검토했습니다.
+instructor,강사,basic,Please check the instructor before you leave the office.,사무실을 떠나기 전에 '강사' 관련 내용을 확인해 주세요.
+school,학교,basic,The school was mentioned in the company announcement.,회사 공지에서 '학교' 관련 내용이 언급되었습니다.
+college,대학,basic,We discussed the college during the morning meeting.,우리는 오전 회의에서 '대학' 관련 내용을 논의했습니다.
+library,도서관,basic,The staff prepared the library for today's schedule.,직원들은 오늘 일정에 맞춰 '도서관' 관련 내용을 준비했습니다.
+book,책,basic,The manager reviewed the book before the meeting.,관리자는 회의 전에 '책' 관련 내용을 검토했습니다.
+magazine,잡지,basic,Please check the magazine before you leave the office.,사무실을 떠나기 전에 '잡지' 관련 내용을 확인해 주세요.
+newspaper,신문,basic,The newspaper was mentioned in the company announcement.,회사 공지에서 '신문' 관련 내용이 언급되었습니다.
+article,"기사, 글",basic,We discussed the article during the morning meeting.,"우리는 오전 회의에서 '기사, 글' 관련 내용을 논의했습니다."
+survey,설문조사,basic,The staff prepared the survey for today's schedule.,직원들은 오늘 일정에 맞춰 '설문조사' 관련 내용을 준비했습니다.
+question,질문,basic,The manager reviewed the question before the meeting.,관리자는 회의 전에 '질문' 관련 내용을 검토했습니다.
+answer,답변,basic,Please check the answer before you leave the office.,사무실을 떠나기 전에 '답변' 관련 내용을 확인해 주세요.
+problem,문제,basic,The problem was mentioned in the company announcement.,회사 공지에서 '문제' 관련 내용이 언급되었습니다.
+solution,해결책,basic,We discussed the solution during the morning meeting.,우리는 오전 회의에서 '해결책' 관련 내용을 논의했습니다.
+idea,아이디어,basic,The staff prepared the idea for today's schedule.,직원들은 오늘 일정에 맞춰 '아이디어' 관련 내용을 준비했습니다.
+opinion,의견,basic,The manager reviewed the opinion before the meeting.,관리자는 회의 전에 '의견' 관련 내용을 검토했습니다.
+decision,결정,basic,Please check the decision before you leave the office.,사무실을 떠나기 전에 '결정' 관련 내용을 확인해 주세요.
+change,"변화, 변경",basic,The change was mentioned in the company announcement.,"회사 공지에서 '변화, 변경' 관련 내용이 언급되었습니다."
+improvement,개선,basic,We discussed the improvement during the morning meeting.,우리는 오전 회의에서 '개선' 관련 내용을 논의했습니다.
+progress,"진행, 진전",basic,The staff prepared the progress for today's schedule.,"직원들은 오늘 일정에 맞춰 '진행, 진전' 관련 내용을 준비했습니다."
+success,성공,basic,The manager reviewed the success before the meeting.,관리자는 회의 전에 '성공' 관련 내용을 검토했습니다.
+failure,실패,basic,Please check the failure before you leave the office.,사무실을 떠나기 전에 '실패' 관련 내용을 확인해 주세요.
+chance,"기회, 가능성",basic,The chance was mentioned in the company announcement.,"회사 공지에서 '기회, 가능성' 관련 내용이 언급되었습니다."
+opportunity,기회,basic,We discussed the opportunity during the morning meeting.,우리는 오전 회의에서 '기회' 관련 내용을 논의했습니다.
+reason,이유,basic,The staff prepared the reason for today's schedule.,직원들은 오늘 일정에 맞춰 '이유' 관련 내용을 준비했습니다.
+purpose,목적,basic,The manager reviewed the purpose before the meeting.,관리자는 회의 전에 '목적' 관련 내용을 검토했습니다.
+example,"예, 사례",basic,Please check the example before you leave the office.,"사무실을 떠나기 전에 '예, 사례' 관련 내용을 확인해 주세요."
+difference,차이,basic,The difference was mentioned in the company announcement.,회사 공지에서 '차이' 관련 내용이 언급되었습니다.
+amount,"양, 금액",basic,We discussed the amount during the morning meeting.,"우리는 오전 회의에서 '양, 금액' 관련 내용을 논의했습니다."
+total,합계,basic,The staff prepared the total for today's schedule.,직원들은 오늘 일정에 맞춰 '합계' 관련 내용을 준비했습니다.
+average,평균,basic,The manager reviewed the average before the meeting.,관리자는 회의 전에 '평균' 관련 내용을 검토했습니다.
+rate,"비율, 요금",basic,Please check the rate before you leave the office.,"사무실을 떠나기 전에 '비율, 요금' 관련 내용을 확인해 주세요."
+increase,증가,basic,The increase was mentioned in the company announcement.,회사 공지에서 '증가' 관련 내용이 언급되었습니다.
+decrease,감소,basic,We discussed the decrease during the morning meeting.,우리는 오전 회의에서 '감소' 관련 내용을 논의했습니다.
+growth,성장,basic,The staff prepared the growth for today's schedule.,직원들은 오늘 일정에 맞춰 '성장' 관련 내용을 준비했습니다.
+demand,수요,basic,The manager reviewed the demand before the meeting.,관리자는 회의 전에 '수요' 관련 내용을 검토했습니다.
+competition,경쟁,basic,Please check the competition before you leave the office.,사무실을 떠나기 전에 '경쟁' 관련 내용을 확인해 주세요.
+industry,산업,basic,The industry was mentioned in the company announcement.,회사 공지에서 '산업' 관련 내용이 언급되었습니다.
+economy,경제,basic,We discussed the economy during the morning meeting.,우리는 오전 회의에서 '경제' 관련 내용을 논의했습니다.
+community,지역사회,basic,The staff prepared the community for today's schedule.,직원들은 오늘 일정에 맞춰 '지역사회' 관련 내용을 준비했습니다.
+government,정부,basic,The manager reviewed the government before the meeting.,관리자는 회의 전에 '정부' 관련 내용을 검토했습니다.
+law,법,basic,Please check the law before you leave the office.,사무실을 떠나기 전에 '법' 관련 내용을 확인해 주세요.
+rule,규칙,basic,The rule was mentioned in the company announcement.,회사 공지에서 '규칙' 관련 내용이 언급되었습니다.
+policy,"정책, 방침",basic,We discussed the policy during the morning meeting.,"우리는 오전 회의에서 '정책, 방침' 관련 내용을 논의했습니다."
+procedure,절차,basic,The staff prepared the procedure for today's schedule.,직원들은 오늘 일정에 맞춰 '절차' 관련 내용을 준비했습니다.
+requirement,요건,basic,The manager reviewed the requirement before the meeting.,관리자는 회의 전에 '요건' 관련 내용을 검토했습니다.
+standard,기준,basic,Please check the standard before you leave the office.,사무실을 떠나기 전에 '기준' 관련 내용을 확인해 주세요.
+condition,"조건, 상태",basic,The condition was mentioned in the company announcement.,"회사 공지에서 '조건, 상태' 관련 내용이 언급되었습니다."
+contract,계약,basic,We discussed the contract during the morning meeting.,우리는 오전 회의에서 '계약' 관련 내용을 논의했습니다.
+agreement,"합의, 계약",basic,The staff prepared the agreement for today's schedule.,"직원들은 오늘 일정에 맞춰 '합의, 계약' 관련 내용을 준비했습니다."
+customer service,고객 서비스,basic,The manager reviewed the customer service before the meeting.,관리자는 회의 전에 '고객 서비스' 관련 내용을 검토했습니다.
+membership,회원 자격,basic,Please check the membership before you leave the office.,사무실을 떠나기 전에 '회원 자격' 관련 내용을 확인해 주세요.
+member,회원,basic,The member was mentioned in the company announcement.,회사 공지에서 '회원' 관련 내용이 언급되었습니다.
+visitor,방문객,basic,We discussed the visitor during the morning meeting.,우리는 오전 회의에서 '방문객' 관련 내용을 논의했습니다.
+guest,손님,basic,The staff prepared the guest for today's schedule.,직원들은 오늘 일정에 맞춰 '손님' 관련 내용을 준비했습니다.
+owner,소유주,basic,The manager reviewed the owner before the meeting.,관리자는 회의 전에 '소유주' 관련 내용을 검토했습니다.
+leader,"지도자, 팀장",basic,Please check the leader before you leave the office.,"사무실을 떠나기 전에 '지도자, 팀장' 관련 내용을 확인해 주세요."
+director,"이사, 책임자",basic,The director was mentioned in the company announcement.,"회사 공지에서 '이사, 책임자' 관련 내용이 언급되었습니다."
+president,"사장, 회장",basic,We discussed the president during the morning meeting.,"우리는 오전 회의에서 '사장, 회장' 관련 내용을 논의했습니다."
+assistant,"보조원, 비서",basic,The staff prepared the assistant for today's schedule.,"직원들은 오늘 일정에 맞춰 '보조원, 비서' 관련 내용을 준비했습니다."
+secretary,비서,basic,The manager reviewed the secretary before the meeting.,관리자는 회의 전에 '비서' 관련 내용을 검토했습니다.
+receptionist,접수원,basic,Please check the receptionist before you leave the office.,사무실을 떠나기 전에 '접수원' 관련 내용을 확인해 주세요.
+salesperson,판매원,basic,The salesperson was mentioned in the company announcement.,회사 공지에서 '판매원' 관련 내용이 언급되었습니다.
+engineer,"기술자, 엔지니어",basic,We discussed the engineer during the morning meeting.,"우리는 오전 회의에서 '기술자, 엔지니어' 관련 내용을 논의했습니다."
+technician,기술자,basic,The staff prepared the technician for today's schedule.,직원들은 오늘 일정에 맞춰 '기술자' 관련 내용을 준비했습니다.
+accountant,회계사,basic,The manager reviewed the accountant before the meeting.,관리자는 회의 전에 '회계사' 관련 내용을 검토했습니다.
+lawyer,변호사,basic,Please check the lawyer before you leave the office.,사무실을 떠나기 전에 '변호사' 관련 내용을 확인해 주세요.
+doctor,의사,basic,The doctor was mentioned in the company announcement.,회사 공지에서 '의사' 관련 내용이 언급되었습니다.
+nurse,간호사,basic,We discussed the nurse during the morning meeting.,우리는 오전 회의에서 '간호사' 관련 내용을 논의했습니다.
+patient,환자,basic,The staff prepared the patient for today's schedule.,직원들은 오늘 일정에 맞춰 '환자' 관련 내용을 준비했습니다.
+driver,운전사,basic,The manager reviewed the driver before the meeting.,관리자는 회의 전에 '운전사' 관련 내용을 검토했습니다.
+passenger,승객,basic,Please check the passenger before you leave the office.,사무실을 떠나기 전에 '승객' 관련 내용을 확인해 주세요.
+supplier,공급업체,basic,The supplier was mentioned in the company announcement.,회사 공지에서 '공급업체' 관련 내용이 언급되었습니다.
+vendor,"판매업체, 공급업체",basic,We discussed the vendor during the morning meeting.,"우리는 오전 회의에서 '판매업체, 공급업체' 관련 내용을 논의했습니다."
+manufacturer,제조업체,basic,The staff prepared the manufacturer for today's schedule.,직원들은 오늘 일정에 맞춰 '제조업체' 관련 내용을 준비했습니다.
+partner,"협력자, 파트너",basic,The manager reviewed the partner before the meeting.,"관리자는 회의 전에 '협력자, 파트너' 관련 내용을 검토했습니다."
+visitor center,방문자 센터,basic,Please check the visitor center before you leave the office.,사무실을 떠나기 전에 '방문자 센터' 관련 내용을 확인해 주세요.
+entrance,입구,basic,The entrance was mentioned in the company announcement.,회사 공지에서 '입구' 관련 내용이 언급되었습니다.
+exit,출구,basic,We discussed the exit during the morning meeting.,우리는 오전 회의에서 '출구' 관련 내용을 논의했습니다.
+elevator,엘리베이터,basic,The staff prepared the elevator for today's schedule.,직원들은 오늘 일정에 맞춰 '엘리베이터' 관련 내용을 준비했습니다.
+stairs,계단,basic,The manager reviewed the stairs before the meeting.,관리자는 회의 전에 '계단' 관련 내용을 검토했습니다.
+lobby,로비,basic,Please check the lobby before you leave the office.,사무실을 떠나기 전에 '로비' 관련 내용을 확인해 주세요.
+hall,"홀, 복도",basic,The hall was mentioned in the company announcement.,"회사 공지에서 '홀, 복도' 관련 내용이 언급되었습니다."
+kitchen,주방,basic,We discussed the kitchen during the morning meeting.,우리는 오전 회의에서 '주방' 관련 내용을 논의했습니다.
+cafeteria,구내식당,basic,The staff prepared the cafeteria for today's schedule.,직원들은 오늘 일정에 맞춰 '구내식당' 관련 내용을 준비했습니다.
+menu,메뉴,basic,The manager reviewed the menu before the meeting.,관리자는 회의 전에 '메뉴' 관련 내용을 검토했습니다.
+meal,식사,basic,Please check the meal before you leave the office.,사무실을 떠나기 전에 '식사' 관련 내용을 확인해 주세요.
+breakfast,아침 식사,basic,The breakfast was mentioned in the company announcement.,회사 공지에서 '아침 식사' 관련 내용이 언급되었습니다.
+lunch,점심 식사,basic,We discussed the lunch during the morning meeting.,우리는 오전 회의에서 '점심 식사' 관련 내용을 논의했습니다.
+dinner,저녁 식사,basic,The staff prepared the dinner for today's schedule.,직원들은 오늘 일정에 맞춰 '저녁 식사' 관련 내용을 준비했습니다.
+food,음식,basic,The manager reviewed the food before the meeting.,관리자는 회의 전에 '음식' 관련 내용을 검토했습니다.
+drink,음료,basic,Please check the drink before you leave the office.,사무실을 떠나기 전에 '음료' 관련 내용을 확인해 주세요.
+coffee,커피,basic,The coffee was mentioned in the company announcement.,회사 공지에서 '커피' 관련 내용이 언급되었습니다.
+water,물,basic,We discussed the water during the morning meeting.,우리는 오전 회의에서 '물' 관련 내용을 논의했습니다.
+table,탁자,basic,The staff prepared the table for today's schedule.,직원들은 오늘 일정에 맞춰 '탁자' 관련 내용을 준비했습니다.
+seat,좌석,basic,The manager reviewed the seat before the meeting.,관리자는 회의 전에 '좌석' 관련 내용을 검토했습니다.
+appointment,"약속, 예약",basic,Please check the appointment before you leave the office.,"사무실을 떠나기 전에 '약속, 예약' 관련 내용을 확인해 주세요."
+deadline,마감일,basic,The deadline was mentioned in the company announcement.,회사 공지에서 '마감일' 관련 내용이 언급되었습니다.
+delay,지연,basic,We discussed the delay during the morning meeting.,우리는 오전 회의에서 '지연' 관련 내용을 논의했습니다.
+problem report,문제 보고서,basic,The staff prepared the problem report for today's schedule.,직원들은 오늘 일정에 맞춰 '문제 보고서' 관련 내용을 준비했습니다.
+maintenance,유지보수,basic,The manager reviewed the maintenance before the meeting.,관리자는 회의 전에 '유지보수' 관련 내용을 검토했습니다.
+repair,수리,basic,Please check the repair before you leave the office.,사무실을 떠나기 전에 '수리' 관련 내용을 확인해 주세요.
+inspection,"점검, 검사",basic,The inspection was mentioned in the company announcement.,"회사 공지에서 '점검, 검사' 관련 내용이 언급되었습니다."
+safety,안전,basic,We discussed the safety during the morning meeting.,우리는 오전 회의에서 '안전' 관련 내용을 논의했습니다.
+security,"보안, 안전",basic,The staff prepared the security for today's schedule.,"직원들은 오늘 일정에 맞춰 '보안, 안전' 관련 내용을 준비했습니다."
+emergency,비상사태,basic,The manager reviewed the emergency before the meeting.,관리자는 회의 전에 '비상사태' 관련 내용을 검토했습니다.
+accident,사고,basic,Please check the accident before you leave the office.,사무실을 떠나기 전에 '사고' 관련 내용을 확인해 주세요.
+insurance,보험,basic,The insurance was mentioned in the company announcement.,회사 공지에서 '보험' 관련 내용이 언급되었습니다.
+health,건강,basic,We discussed the health during the morning meeting.,우리는 오전 회의에서 '건강' 관련 내용을 논의했습니다.
+hospital,병원,basic,The staff prepared the hospital for today's schedule.,직원들은 오늘 일정에 맞춰 '병원' 관련 내용을 준비했습니다.
+medicine,약,basic,The manager reviewed the medicine before the meeting.,관리자는 회의 전에 '약' 관련 내용을 검토했습니다.
+exercise,운동,basic,Please check the exercise before you leave the office.,사무실을 떠나기 전에 '운동' 관련 내용을 확인해 주세요.
+weather,날씨,basic,The weather was mentioned in the company announcement.,회사 공지에서 '날씨' 관련 내용이 언급되었습니다.
+rain,비,basic,We discussed the rain during the morning meeting.,우리는 오전 회의에서 '비' 관련 내용을 논의했습니다.
+snow,눈,basic,The staff prepared the snow for today's schedule.,직원들은 오늘 일정에 맞춰 '눈' 관련 내용을 준비했습니다.
+temperature,온도,basic,The manager reviewed the temperature before the meeting.,관리자는 회의 전에 '온도' 관련 내용을 검토했습니다.
+season,계절,basic,Please check the season before you leave the office.,사무실을 떠나기 전에 '계절' 관련 내용을 확인해 주세요.
+morning,아침,basic,The morning was mentioned in the company announcement.,회사 공지에서 '아침' 관련 내용이 언급되었습니다.
+afternoon,오후,basic,We discussed the afternoon during the morning meeting.,우리는 오전 회의에서 '오후' 관련 내용을 논의했습니다.
+evening,저녁,basic,The staff prepared the evening for today's schedule.,직원들은 오늘 일정에 맞춰 '저녁' 관련 내용을 준비했습니다.
+week,주,basic,The manager reviewed the week before the meeting.,관리자는 회의 전에 '주' 관련 내용을 검토했습니다.
+month,"달, 월",basic,Please check the month before you leave the office.,"사무실을 떠나기 전에 '달, 월' 관련 내용을 확인해 주세요."
+year,년,basic,The year was mentioned in the company announcement.,회사 공지에서 '년' 관련 내용이 언급되었습니다.
+Monday,월요일,basic,We discussed the Monday during the morning meeting.,우리는 오전 회의에서 '월요일' 관련 내용을 논의했습니다.
+Tuesday,화요일,basic,The staff prepared the Tuesday for today's schedule.,직원들은 오늘 일정에 맞춰 '화요일' 관련 내용을 준비했습니다.
+Wednesday,수요일,basic,The manager reviewed the Wednesday before the meeting.,관리자는 회의 전에 '수요일' 관련 내용을 검토했습니다.
+Thursday,목요일,basic,Please check the Thursday before you leave the office.,사무실을 떠나기 전에 '목요일' 관련 내용을 확인해 주세요.
+Friday,금요일,basic,The Friday was mentioned in the company announcement.,회사 공지에서 '금요일' 관련 내용이 언급되었습니다.
+Saturday,토요일,basic,We discussed the Saturday during the morning meeting.,우리는 오전 회의에서 '토요일' 관련 내용을 논의했습니다.
+Sunday,일요일,basic,The staff prepared the Sunday for today's schedule.,직원들은 오늘 일정에 맞춰 '일요일' 관련 내용을 준비했습니다.
+January,1월,basic,The manager reviewed the January before the meeting.,관리자는 회의 전에 '1월' 관련 내용을 검토했습니다.
+February,2월,basic,Please check the February before you leave the office.,사무실을 떠나기 전에 '2월' 관련 내용을 확인해 주세요.
+March,3월,basic,The March was mentioned in the company announcement.,회사 공지에서 '3월' 관련 내용이 언급되었습니다.
+April,4월,basic,We discussed the April during the morning meeting.,우리는 오전 회의에서 '4월' 관련 내용을 논의했습니다.
+May,5월,basic,The staff prepared the May for today's schedule.,직원들은 오늘 일정에 맞춰 '5월' 관련 내용을 준비했습니다.
+June,6월,basic,The manager reviewed the June before the meeting.,관리자는 회의 전에 '6월' 관련 내용을 검토했습니다.
+July,7월,basic,Please check the July before you leave the office.,사무실을 떠나기 전에 '7월' 관련 내용을 확인해 주세요.
+August,8월,basic,The August was mentioned in the company announcement.,회사 공지에서 '8월' 관련 내용이 언급되었습니다.
+September,9월,basic,We discussed the September during the morning meeting.,우리는 오전 회의에서 '9월' 관련 내용을 논의했습니다.
+October,10월,basic,The staff prepared the October for today's schedule.,직원들은 오늘 일정에 맞춰 '10월' 관련 내용을 준비했습니다.
+November,11월,basic,The manager reviewed the November before the meeting.,관리자는 회의 전에 '11월' 관련 내용을 검토했습니다.
+December,12월,basic,Please check the December before you leave the office.,사무실을 떠나기 전에 '12월' 관련 내용을 확인해 주세요.
+hire,고용하다,basic,The manager asked us to hire today.,관리자는 우리에게 오늘 '고용하다' 하라고 요청했습니다.
+manage,관리하다,basic,We need to manage before the deadline.,우리는 마감일 전에 '관리하다' 해야 합니다.
+help,돕다,basic,Staff members can help when necessary.,직원들은 필요할 때 '돕다' 할 수 있습니다.
+support,지원하다,basic,Please support before the scheduled meeting.,예정된 회의 전에 '지원하다' 해 주세요.
+assist,"돕다, 보조하다",basic,Employees should assist as soon as possible.,"직원들은 가능한 한 빨리 '돕다, 보조하다' 해야 합니다."
+learn,배우다,basic,The manager asked us to learn today.,관리자는 우리에게 오늘 '배우다' 하라고 요청했습니다.
+study,공부하다,basic,We need to study before the deadline.,우리는 마감일 전에 '공부하다' 해야 합니다.
+teach,가르치다,basic,Staff members can teach when necessary.,직원들은 필요할 때 '가르치다' 할 수 있습니다.
+apply,"지원하다, 신청하다",basic,Please apply before the scheduled meeting.,"예정된 회의 전에 '지원하다, 신청하다' 해 주세요."
+start,시작하다,basic,Employees should start as soon as possible.,직원들은 가능한 한 빨리 '시작하다' 해야 합니다.
+begin,시작하다,basic,The manager asked us to begin today.,관리자는 우리에게 오늘 '시작하다' 하라고 요청했습니다.
+finish,끝내다,basic,We need to finish before the deadline.,우리는 마감일 전에 '끝내다' 해야 합니다.
+complete,완료하다,basic,Staff members can complete when necessary.,직원들은 필요할 때 '완료하다' 할 수 있습니다.
+continue,계속하다,basic,Please continue before the scheduled meeting.,예정된 회의 전에 '계속하다' 해 주세요.
+stop,멈추다,basic,Employees should stop as soon as possible.,직원들은 가능한 한 빨리 '멈추다' 해야 합니다.
+open,열다,basic,The manager asked us to open today.,관리자는 우리에게 오늘 '열다' 하라고 요청했습니다.
+close,닫다,basic,We need to close before the deadline.,우리는 마감일 전에 '닫다' 해야 합니다.
+send,보내다,basic,Staff members can send when necessary.,직원들은 필요할 때 '보내다' 할 수 있습니다.
+receive,받다,basic,Please receive before the scheduled meeting.,예정된 회의 전에 '받다' 해 주세요.
+ask,"묻다, 요청하다",basic,Employees should ask as soon as possible.,"직원들은 가능한 한 빨리 '묻다, 요청하다' 해야 합니다."
+reply,답장하다,basic,The manager asked us to reply today.,관리자는 우리에게 오늘 '답장하다' 하라고 요청했습니다.
+write,쓰다,basic,We need to write before the deadline.,우리는 마감일 전에 '쓰다' 해야 합니다.
+read,읽다,basic,Staff members can read when necessary.,직원들은 필요할 때 '읽다' 할 수 있습니다.
+check,확인하다,basic,Please check before the scheduled meeting.,예정된 회의 전에 '확인하다' 해 주세요.
+review,검토하다,basic,Employees should review as soon as possible.,직원들은 가능한 한 빨리 '검토하다' 해야 합니다.
+confirm,확인하다,basic,The manager asked us to confirm today.,관리자는 우리에게 오늘 '확인하다' 하라고 요청했습니다.
+explain,설명하다,basic,We need to explain before the deadline.,우리는 마감일 전에 '설명하다' 해야 합니다.
+discuss,논의하다,basic,Staff members can discuss when necessary.,직원들은 필요할 때 '논의하다' 할 수 있습니다.
+meet,만나다,basic,Please meet before the scheduled meeting.,예정된 회의 전에 '만나다' 해 주세요.
+attend,참석하다,basic,Employees should attend as soon as possible.,직원들은 가능한 한 빨리 '참석하다' 해야 합니다.
+visit,방문하다,basic,The manager asked us to visit today.,관리자는 우리에게 오늘 '방문하다' 하라고 요청했습니다.
+arrive,도착하다,basic,We need to arrive before the deadline.,우리는 마감일 전에 '도착하다' 해야 합니다.
+leave,떠나다,basic,Staff members can leave when necessary.,직원들은 필요할 때 '떠나다' 할 수 있습니다.
+return,"돌아오다, 반환하다",basic,Please return before the scheduled meeting.,"예정된 회의 전에 '돌아오다, 반환하다' 해 주세요."
+reserve,예약하다,basic,Employees should reserve as soon as possible.,직원들은 가능한 한 빨리 '예약하다' 해야 합니다.
+cancel,취소하다,basic,The manager asked us to cancel today.,관리자는 우리에게 오늘 '취소하다' 하라고 요청했습니다.
+move,이동하다,basic,We need to move before the deadline.,우리는 마감일 전에 '이동하다' 해야 합니다.
+drive,운전하다,basic,Staff members can drive when necessary.,직원들은 필요할 때 '운전하다' 할 수 있습니다.
+park,주차하다,basic,Please park before the scheduled meeting.,예정된 회의 전에 '주차하다' 해 주세요.
+deliver,배달하다,basic,Employees should deliver as soon as possible.,직원들은 가능한 한 빨리 '배달하다' 해야 합니다.
+ship,배송하다,basic,The manager asked us to ship today.,관리자는 우리에게 오늘 '배송하다' 하라고 요청했습니다.
+pack,포장하다,basic,We need to pack before the deadline.,우리는 마감일 전에 '포장하다' 해야 합니다.
+carry,운반하다,basic,Staff members can carry when necessary.,직원들은 필요할 때 '운반하다' 할 수 있습니다.
+bring,가져오다,basic,Please bring before the scheduled meeting.,예정된 회의 전에 '가져오다' 해 주세요.
+take,"가져가다, 취하다",basic,Employees should take as soon as possible.,"직원들은 가능한 한 빨리 '가져가다, 취하다' 해야 합니다."
+buy,구매하다,basic,The manager asked us to buy today.,관리자는 우리에게 오늘 '구매하다' 하라고 요청했습니다.
+sell,판매하다,basic,We need to sell before the deadline.,우리는 마감일 전에 '판매하다' 해야 합니다.
+pay,지불하다,basic,Staff members can pay when necessary.,직원들은 필요할 때 '지불하다' 할 수 있습니다.
+save,"절약하다, 저장하다",basic,Please save before the scheduled meeting.,"예정된 회의 전에 '절약하다, 저장하다' 해 주세요."
+spend,"쓰다, 소비하다",basic,Employees should spend as soon as possible.,"직원들은 가능한 한 빨리 '쓰다, 소비하다' 해야 합니다."
+borrow,빌리다,basic,The manager asked us to borrow today.,관리자는 우리에게 오늘 '빌리다' 하라고 요청했습니다.
+lend,빌려주다,basic,We need to lend before the deadline.,우리는 마감일 전에 '빌려주다' 해야 합니다.
+offer,"제공하다, 제안하다",basic,Staff members can offer when necessary.,"직원들은 필요할 때 '제공하다, 제안하다' 할 수 있습니다."
+provide,제공하다,basic,Please provide before the scheduled meeting.,예정된 회의 전에 '제공하다' 해 주세요.
+give,주다,basic,Employees should give as soon as possible.,직원들은 가능한 한 빨리 '주다' 해야 합니다.
+use,사용하다,basic,The manager asked us to use today.,관리자는 우리에게 오늘 '사용하다' 하라고 요청했습니다.
+need,필요로 하다,basic,We need to need before the deadline.,우리는 마감일 전에 '필요로 하다' 해야 합니다.
+want,원하다,basic,Staff members can want when necessary.,직원들은 필요할 때 '원하다' 할 수 있습니다.
+require,요구하다,basic,Please require before the scheduled meeting.,예정된 회의 전에 '요구하다' 해 주세요.
+choose,선택하다,basic,Employees should choose as soon as possible.,직원들은 가능한 한 빨리 '선택하다' 해야 합니다.
+select,선택하다,basic,The manager asked us to select today.,관리자는 우리에게 오늘 '선택하다' 하라고 요청했습니다.
+decide,결정하다,basic,We need to decide before the deadline.,우리는 마감일 전에 '결정하다' 해야 합니다.
+prepare,준비하다,basic,Staff members can prepare when necessary.,직원들은 필요할 때 '준비하다' 할 수 있습니다.
+organize,"정리하다, 조직하다",basic,Please organize before the scheduled meeting.,"예정된 회의 전에 '정리하다, 조직하다' 해 주세요."
+arrange,"준비하다, 마련하다",basic,Employees should arrange as soon as possible.,"직원들은 가능한 한 빨리 '준비하다, 마련하다' 해야 합니다."
+invite,초대하다,basic,The manager asked us to invite today.,관리자는 우리에게 오늘 '초대하다' 하라고 요청했습니다.
+join,참여하다,basic,We need to join before the deadline.,우리는 마감일 전에 '참여하다' 해야 합니다.
+participate,참여하다,basic,Staff members can participate when necessary.,직원들은 필요할 때 '참여하다' 할 수 있습니다.
+present,"발표하다, 제시하다",basic,Please present before the scheduled meeting.,"예정된 회의 전에 '발표하다, 제시하다' 해 주세요."
+show,보여주다,basic,Employees should show as soon as possible.,직원들은 가능한 한 빨리 '보여주다' 해야 합니다.
+display,"전시하다, 표시하다",basic,The manager asked us to display today.,"관리자는 우리에게 오늘 '전시하다, 표시하다' 하라고 요청했습니다."
+introduce,소개하다,basic,We need to introduce before the deadline.,우리는 마감일 전에 '소개하다' 해야 합니다.
+announce,발표하다,basic,Staff members can announce when necessary.,직원들은 필요할 때 '발표하다' 할 수 있습니다.
+advertise,광고하다,basic,Please advertise before the scheduled meeting.,예정된 회의 전에 '광고하다' 해 주세요.
+promote,"홍보하다, 승진시키다",basic,Employees should promote as soon as possible.,"직원들은 가능한 한 빨리 '홍보하다, 승진시키다' 해야 합니다."
+recommend,추천하다,basic,The manager asked us to recommend today.,관리자는 우리에게 오늘 '추천하다' 하라고 요청했습니다.
+suggest,제안하다,basic,We need to suggest before the deadline.,우리는 마감일 전에 '제안하다' 해야 합니다.
+agree,동의하다,basic,Staff members can agree when necessary.,직원들은 필요할 때 '동의하다' 할 수 있습니다.
+accept,받아들이다,basic,Please accept before the scheduled meeting.,예정된 회의 전에 '받아들이다' 해 주세요.
+refuse,거절하다,basic,Employees should refuse as soon as possible.,직원들은 가능한 한 빨리 '거절하다' 해야 합니다.
+approve,승인하다,basic,The manager asked us to approve today.,관리자는 우리에게 오늘 '승인하다' 하라고 요청했습니다.
+sign,서명하다,basic,We need to sign before the deadline.,우리는 마감일 전에 '서명하다' 해야 합니다.
+submit,제출하다,basic,Staff members can submit when necessary.,직원들은 필요할 때 '제출하다' 할 수 있습니다.
+update,업데이트하다,basic,Please update before the scheduled meeting.,예정된 회의 전에 '업데이트하다' 해 주세요.
+add,추가하다,basic,Employees should add as soon as possible.,직원들은 가능한 한 빨리 '추가하다' 해야 합니다.
+remove,제거하다,basic,The manager asked us to remove today.,관리자는 우리에게 오늘 '제거하다' 하라고 요청했습니다.
+replace,교체하다,basic,We need to replace before the deadline.,우리는 마감일 전에 '교체하다' 해야 합니다.
+fix,"수리하다, 고치다",basic,Staff members can fix when necessary.,"직원들은 필요할 때 '수리하다, 고치다' 할 수 있습니다."
+maintain,유지하다,basic,Please maintain before the scheduled meeting.,예정된 회의 전에 '유지하다' 해 주세요.
+inspect,점검하다,basic,Employees should inspect as soon as possible.,직원들은 가능한 한 빨리 '점검하다' 해야 합니다.
+clean,청소하다,basic,The manager asked us to clean today.,관리자는 우리에게 오늘 '청소하다' 하라고 요청했습니다.
+install,설치하다,basic,We need to install before the deadline.,우리는 마감일 전에 '설치하다' 해야 합니다.
+operate,"작동하다, 운영하다",basic,Staff members can operate when necessary.,"직원들은 필요할 때 '작동하다, 운영하다' 할 수 있습니다."
+produce,생산하다,basic,Please produce before the scheduled meeting.,예정된 회의 전에 '생산하다' 해 주세요.
+make,만들다,basic,Employees should make as soon as possible.,직원들은 가능한 한 빨리 '만들다' 해야 합니다.
+build,"건설하다, 만들다",basic,The manager asked us to build today.,"관리자는 우리에게 오늘 '건설하다, 만들다' 하라고 요청했습니다."
+develop,개발하다,basic,We need to develop before the deadline.,우리는 마감일 전에 '개발하다' 해야 합니다.
+improve,개선하다,basic,Staff members can improve when necessary.,직원들은 필요할 때 '개선하다' 할 수 있습니다.
+reduce,줄이다,basic,Please reduce before the scheduled meeting.,예정된 회의 전에 '줄이다' 해 주세요.
+grow,성장하다,basic,Employees should grow as soon as possible.,직원들은 가능한 한 빨리 '성장하다' 해야 합니다.
+expand,확장하다,basic,The manager asked us to expand today.,관리자는 우리에게 오늘 '확장하다' 하라고 요청했습니다.
+compare,비교하다,basic,We need to compare before the deadline.,우리는 마감일 전에 '비교하다' 해야 합니다.
+measure,측정하다,basic,Staff members can measure when necessary.,직원들은 필요할 때 '측정하다' 할 수 있습니다.
+count,세다,basic,Please count before the scheduled meeting.,예정된 회의 전에 '세다' 해 주세요.
+include,포함하다,basic,Employees should include as soon as possible.,직원들은 가능한 한 빨리 '포함하다' 해야 합니다.
+contain,포함하다,basic,The manager asked us to contain today.,관리자는 우리에게 오늘 '포함하다' 하라고 요청했습니다.
+find,찾다,basic,We need to find before the deadline.,우리는 마감일 전에 '찾다' 해야 합니다.
+look,보다,basic,Staff members can look when necessary.,직원들은 필요할 때 '보다' 할 수 있습니다.
+search,"찾다, 검색하다",basic,Please search before the scheduled meeting.,"예정된 회의 전에 '찾다, 검색하다' 해 주세요."
+wait,기다리다,basic,Employees should wait as soon as possible.,직원들은 가능한 한 빨리 '기다리다' 해야 합니다.
+stay,머무르다,basic,The manager asked us to stay today.,관리자는 우리에게 오늘 '머무르다' 하라고 요청했습니다.
+live,살다,basic,We need to live before the deadline.,우리는 마감일 전에 '살다' 해야 합니다.
+eat,먹다,basic,Staff members can eat when necessary.,직원들은 필요할 때 '먹다' 할 수 있습니다.
+cook,요리하다,basic,Please cook before the scheduled meeting.,예정된 회의 전에 '요리하다' 해 주세요.
+serve,"제공하다, 응대하다",basic,Employees should serve as soon as possible.,"직원들은 가능한 한 빨리 '제공하다, 응대하다' 해야 합니다."
+wear,입다,basic,The manager asked us to wear today.,관리자는 우리에게 오늘 '입다' 하라고 요청했습니다.
+wash,씻다,basic,We need to wash before the deadline.,우리는 마감일 전에 '씻다' 해야 합니다.
+rest,쉬다,basic,Staff members can rest when necessary.,직원들은 필요할 때 '쉬다' 할 수 있습니다.
+enjoy,즐기다,basic,Please enjoy before the scheduled meeting.,예정된 회의 전에 '즐기다' 해 주세요.
+prefer,선호하다,basic,Employees should prefer as soon as possible.,직원들은 가능한 한 빨리 '선호하다' 해야 합니다.
+remember,기억하다,basic,The manager asked us to remember today.,관리자는 우리에게 오늘 '기억하다' 하라고 요청했습니다.
+forget,잊다,basic,We need to forget before the deadline.,우리는 마감일 전에 '잊다' 해야 합니다.
+understand,이해하다,basic,Staff members can understand when necessary.,직원들은 필요할 때 '이해하다' 할 수 있습니다.
+know,알다,basic,Please know before the scheduled meeting.,예정된 회의 전에 '알다' 해 주세요.
+think,생각하다,basic,Employees should think as soon as possible.,직원들은 가능한 한 빨리 '생각하다' 해야 합니다.
+believe,믿다,basic,The manager asked us to believe today.,관리자는 우리에게 오늘 '믿다' 하라고 요청했습니다.
+expect,기대하다,basic,We need to expect before the deadline.,우리는 마감일 전에 '기대하다' 해야 합니다.
+hope,바라다,basic,Staff members can hope when necessary.,직원들은 필요할 때 '바라다' 할 수 있습니다.
+allow,허용하다,basic,Please allow before the scheduled meeting.,예정된 회의 전에 '허용하다' 해 주세요.
+permit,허용하다,basic,Employees should permit as soon as possible.,직원들은 가능한 한 빨리 '허용하다' 해야 합니다.
+follow,따르다,basic,The manager asked us to follow today.,관리자는 우리에게 오늘 '따르다' 하라고 요청했습니다.
+protect,보호하다,basic,We need to protect before the deadline.,우리는 마감일 전에 '보호하다' 해야 합니다.
+prevent,예방하다,basic,Staff members can prevent when necessary.,직원들은 필요할 때 '예방하다' 할 수 있습니다.
+avoid,피하다,basic,Please avoid before the scheduled meeting.,예정된 회의 전에 '피하다' 해 주세요.
+solve,해결하다,basic,Employees should solve as soon as possible.,직원들은 가능한 한 빨리 '해결하다' 해야 합니다.
+handle,처리하다,basic,The manager asked us to handle today.,관리자는 우리에게 오늘 '처리하다' 하라고 요청했습니다.
+care,돌보다,basic,We need to care before the deadline.,우리는 마감일 전에 '돌보다' 해야 합니다.
+available,이용 가능한,basic,We need a available plan for the project.,우리는 프로젝트를 위해 '이용 가능한' 계획이 필요합니다.
+busy,바쁜,basic,The manager said the new procedure was busy.,관리자는 새 절차가 '바쁜' 상태라고 말했습니다.
+free,"무료의, 한가한",basic,The office is free for all employees.,"그 사무실은 모든 직원에게 '무료의, 한가한' 상태입니다."
+closed,닫힌,basic,The customer found the service closed.,고객은 그 서비스가 '닫힌'다고 느꼈습니다.
+new,새로운,basic,The report contains a new explanation.,그 보고서에는 '새로운' 설명이 포함되어 있습니다.
+old,"오래된, 낡은",basic,We need a old plan for the project.,"우리는 프로젝트를 위해 '오래된, 낡은' 계획이 필요합니다."
+young,젊은,basic,The manager said the new procedure was young.,관리자는 새 절차가 '젊은' 상태라고 말했습니다.
+large,큰,basic,The office is large for all employees.,그 사무실은 모든 직원에게 '큰' 상태입니다.
+small,작은,basic,The customer found the service small.,고객은 그 서비스가 '작은'다고 느꼈습니다.
+big,큰,basic,The report contains a big explanation.,그 보고서에는 '큰' 설명이 포함되어 있습니다.
+little,작은,basic,We need a little plan for the project.,우리는 프로젝트를 위해 '작은' 계획이 필요합니다.
+long,긴,basic,The manager said the new procedure was long.,관리자는 새 절차가 '긴' 상태라고 말했습니다.
+short,짧은,basic,The office is short for all employees.,그 사무실은 모든 직원에게 '짧은' 상태입니다.
+high,높은,basic,The customer found the service high.,고객은 그 서비스가 '높은'다고 느꼈습니다.
+low,낮은,basic,The report contains a low explanation.,그 보고서에는 '낮은' 설명이 포함되어 있습니다.
+early,이른,basic,We need a early plan for the project.,우리는 프로젝트를 위해 '이른' 계획이 필요합니다.
+late,늦은,basic,The manager said the new procedure was late.,관리자는 새 절차가 '늦은' 상태라고 말했습니다.
+fast,빠른,basic,The office is fast for all employees.,그 사무실은 모든 직원에게 '빠른' 상태입니다.
+slow,느린,basic,The customer found the service slow.,고객은 그 서비스가 '느린'다고 느꼈습니다.
+easy,쉬운,basic,The report contains a easy explanation.,그 보고서에는 '쉬운' 설명이 포함되어 있습니다.
+difficult,어려운,basic,We need a difficult plan for the project.,우리는 프로젝트를 위해 '어려운' 계획이 필요합니다.
+simple,간단한,basic,The manager said the new procedure was simple.,관리자는 새 절차가 '간단한' 상태라고 말했습니다.
+important,중요한,basic,The office is important for all employees.,그 사무실은 모든 직원에게 '중요한' 상태입니다.
+necessary,필요한,basic,The customer found the service necessary.,고객은 그 서비스가 '필요한'다고 느꼈습니다.
+possible,가능한,basic,The report contains a possible explanation.,그 보고서에는 '가능한' 설명이 포함되어 있습니다.
+ready,준비된,basic,We need a ready plan for the project.,우리는 프로젝트를 위해 '준비된' 계획이 필요합니다.
+safe,안전한,basic,The manager said the new procedure was safe.,관리자는 새 절차가 '안전한' 상태라고 말했습니다.
+careful,조심하는,basic,The office is careful for all employees.,그 사무실은 모든 직원에게 '조심하는' 상태입니다.
+dirty,더러운,basic,The customer found the service dirty.,고객은 그 서비스가 '더러운'다고 느꼈습니다.
+full,가득 찬,basic,The report contains a full explanation.,그 보고서에는 '가득 찬' 설명이 포함되어 있습니다.
+empty,빈,basic,We need a empty plan for the project.,우리는 프로젝트를 위해 '빈' 계획이 필요합니다.
+cheap,저렴한,basic,The manager said the new procedure was cheap.,관리자는 새 절차가 '저렴한' 상태라고 말했습니다.
+expensive,비싼,basic,The office is expensive for all employees.,그 사무실은 모든 직원에게 '비싼' 상태입니다.
+popular,인기 있는,basic,The customer found the service popular.,고객은 그 서비스가 '인기 있는'다고 느꼈습니다.
+special,특별한,basic,The report contains a special explanation.,그 보고서에는 '특별한' 설명이 포함되어 있습니다.
+different,다른,basic,We need a different plan for the project.,우리는 프로젝트를 위해 '다른' 계획이 필요합니다.
+same,같은,basic,The manager said the new procedure was same.,관리자는 새 절차가 '같은' 상태라고 말했습니다.
+good,좋은,basic,The office is good for all employees.,그 사무실은 모든 직원에게 '좋은' 상태입니다.
+bad,나쁜,basic,The customer found the service bad.,고객은 그 서비스가 '나쁜'다고 느꼈습니다.
+better,더 나은,basic,The report contains a better explanation.,그 보고서에는 '더 나은' 설명이 포함되어 있습니다.
+best,최고의,basic,We need a best plan for the project.,우리는 프로젝트를 위해 '최고의' 계획이 필요합니다.
+useful,유용한,basic,The manager said the new procedure was useful.,관리자는 새 절차가 '유용한' 상태라고 말했습니다.
+helpful,도움이 되는,basic,The office is helpful for all employees.,그 사무실은 모든 직원에게 '도움이 되는' 상태입니다.
+friendly,친절한,basic,The customer found the service friendly.,고객은 그 서비스가 '친절한'다고 느꼈습니다.
+kind,친절한,basic,The report contains a kind explanation.,그 보고서에는 '친절한' 설명이 포함되어 있습니다.
+happy,행복한,basic,We need a happy plan for the project.,우리는 프로젝트를 위해 '행복한' 계획이 필요합니다.
+pleased,"기쁜, 만족한",basic,The manager said the new procedure was pleased.,"관리자는 새 절차가 '기쁜, 만족한' 상태라고 말했습니다."
+sorry,"미안한, 유감인",basic,The office is sorry for all employees.,"그 사무실은 모든 직원에게 '미안한, 유감인' 상태입니다."
+interested,관심 있는,basic,The customer found the service interested.,고객은 그 서비스가 '관심 있는'다고 느꼈습니다.
+successful,성공적인,basic,The report contains a successful explanation.,그 보고서에는 '성공적인' 설명이 포함되어 있습니다.
+correct,정확한,basic,We need a correct plan for the project.,우리는 프로젝트를 위해 '정확한' 계획이 필요합니다.
+wrong,틀린,basic,The manager said the new procedure was wrong.,관리자는 새 절차가 '틀린' 상태라고 말했습니다.
+final,최종의,basic,The office is final for all employees.,그 사무실은 모든 직원에게 '최종의' 상태입니다.
+local,지역의,basic,The customer found the service local.,고객은 그 서비스가 '지역의'다고 느꼈습니다.
+international,국제적인,basic,The report contains a international explanation.,그 보고서에는 '국제적인' 설명이 포함되어 있습니다.
+public,공공의,basic,We need a public plan for the project.,우리는 프로젝트를 위해 '공공의' 계획이 필요합니다.
+private,"사적인, 민간의",basic,The manager said the new procedure was private.,"관리자는 새 절차가 '사적인, 민간의' 상태라고 말했습니다."
+personal,개인의,basic,The office is personal for all employees.,그 사무실은 모든 직원에게 '개인의' 상태입니다.
+general,일반적인,basic,The customer found the service general.,고객은 그 서비스가 '일반적인'다고 느꼈습니다.
+current,현재의,basic,The report contains a current explanation.,그 보고서에는 '현재의' 설명이 포함되어 있습니다.
+recent,최근의,basic,We need a recent plan for the project.,우리는 프로젝트를 위해 '최근의' 계획이 필요합니다.
+daily,매일의,basic,The manager said the new procedure was daily.,관리자는 새 절차가 '매일의' 상태라고 말했습니다.
+weekly,매주의,basic,The office is weekly for all employees.,그 사무실은 모든 직원에게 '매주의' 상태입니다.
+monthly,매월의,basic,The customer found the service monthly.,고객은 그 서비스가 '매월의'다고 느꼈습니다.
+annual,연례의,basic,The report contains a annual explanation.,그 보고서에는 '연례의' 설명이 포함되어 있습니다.
+additional,추가의,basic,We need a additional plan for the project.,우리는 프로젝트를 위해 '추가의' 계획이 필요합니다.
+basic,기본적인,basic,The manager said the new procedure was basic.,관리자는 새 절차가 '기본적인' 상태라고 말했습니다.
+common,"흔한, 공통의",basic,The office is common for all employees.,"그 사무실은 모든 직원에게 '흔한, 공통의' 상태입니다."
+regular,정기적인,basic,The customer found the service regular.,고객은 그 서비스가 '정기적인'다고 느꼈습니다.
+normal,정상적인,basic,The report contains a normal explanation.,그 보고서에는 '정상적인' 설명이 포함되어 있습니다.
+clear,명확한,basic,We need a clear plan for the project.,우리는 프로젝트를 위해 '명확한' 계획이 필요합니다.
+quiet,조용한,basic,The manager said the new procedure was quiet.,관리자는 새 절차가 '조용한' 상태라고 말했습니다.
+comfortable,편안한,basic,The office is comfortable for all employees.,그 사무실은 모든 직원에게 '편안한' 상태입니다.
+convenient,편리한,basic,The customer found the service convenient.,고객은 그 서비스가 '편리한'다고 느꼈습니다.
+near,가까운,basic,The report contains a near explanation.,그 보고서에는 '가까운' 설명이 포함되어 있습니다.
+far,먼,basic,We need a far plan for the project.,우리는 프로젝트를 위해 '먼' 계획이 필요합니다.
+quick,빠른,basic,The manager said the new procedure was quick.,관리자는 새 절차가 '빠른' 상태라고 말했습니다.
+fresh,신선한,basic,The office is fresh for all employees.,그 사무실은 모든 직원에게 '신선한' 상태입니다.
+warm,따뜻한,basic,The customer found the service warm.,고객은 그 서비스가 '따뜻한'다고 느꼈습니다.
+cold,"추운, 차가운",basic,The report contains a cold explanation.,"그 보고서에는 '추운, 차가운' 설명이 포함되어 있습니다."
+hot,"뜨거운, 더운",basic,We need a hot plan for the project.,"우리는 프로젝트를 위해 '뜨거운, 더운' 계획이 필요합니다."
+dry,건조한,basic,The manager said the new procedure was dry.,관리자는 새 절차가 '건조한' 상태라고 말했습니다.
+wet,젖은,basic,The office is wet for all employees.,그 사무실은 모든 직원에게 '젖은' 상태입니다.
+strong,강한,basic,The customer found the service strong.,고객은 그 서비스가 '강한'다고 느꼈습니다.
+weak,약한,basic,The report contains a weak explanation.,그 보고서에는 '약한' 설명이 포함되어 있습니다.
+heavy,무거운,basic,We need a heavy plan for the project.,우리는 프로젝트를 위해 '무거운' 계획이 필요합니다.
+light,가벼운,basic,The manager said the new procedure was light.,관리자는 새 절차가 '가벼운' 상태라고 말했습니다.
+modern,현대적인,basic,The office is modern for all employees.,그 사무실은 모든 직원에게 '현대적인' 상태입니다.
+traditional,전통적인,basic,The customer found the service traditional.,고객은 그 서비스가 '전통적인'다고 느꼈습니다.
+professional,전문적인,basic,The report contains a professional explanation.,그 보고서에는 '전문적인' 설명이 포함되어 있습니다.
+excellent,훌륭한,basic,We need a excellent plan for the project.,우리는 프로젝트를 위해 '훌륭한' 계획이 필요합니다.
+effective,효과적인,basic,The manager said the new procedure was effective.,관리자는 새 절차가 '효과적인' 상태라고 말했습니다.
+efficient,효율적인,basic,The office is efficient for all employees.,그 사무실은 모든 직원에게 '효율적인' 상태입니다.
+accurate,정확한,basic,The customer found the service accurate.,고객은 그 서비스가 '정확한'다고 느꼈습니다.
+certain,확실한,basic,The report contains a certain explanation.,그 보고서에는 '확실한' 설명이 포함되어 있습니다.
+likely,가능성이 높은,basic,We need a likely plan for the project.,우리는 프로젝트를 위해 '가능성이 높은' 계획이 필요합니다.
+responsible,책임이 있는,basic,The manager said the new procedure was responsible.,관리자는 새 절차가 '책임이 있는' 상태라고 말했습니다.
+familiar,익숙한,basic,The office is familiar for all employees.,그 사무실은 모든 직원에게 '익숙한' 상태입니다.
+similar,비슷한,basic,The customer found the service similar.,고객은 그 서비스가 '비슷한'다고 느꼈습니다.
+various,다양한,basic,The report contains a various explanation.,그 보고서에는 '다양한' 설명이 포함되어 있습니다.
+main,주요한,basic,We need a main plan for the project.,우리는 프로젝트를 위해 '주요한' 계획이 필요합니다.
+major,주요한,basic,The manager said the new procedure was major.,관리자는 새 절차가 '주요한' 상태라고 말했습니다.
+minor,"사소한, 작은",basic,The office is minor for all employees.,"그 사무실은 모든 직원에게 '사소한, 작은' 상태입니다."
+whole,전체의,basic,The customer found the service whole.,고객은 그 서비스가 '전체의'다고 느꼈습니다.
+enough,충분한,basic,The report contains a enough explanation.,그 보고서에는 '충분한' 설명이 포함되어 있습니다.
+almost,거의,basic,The information was almost updated.,정보가 '거의' 업데이트되었습니다.
+already,이미,basic,The staff completed the task already.,직원들은 업무를 '이미' 처리했습니다.
+always,항상,basic,Please respond to the email always.,이메일에 '항상' 답변해 주세요.
+usually,보통,basic,The manager usually checks the weekly report.,관리자는 주간 보고서를 '보통' 확인합니다.
+often,자주,basic,The team worked often to finish the project.,팀은 프로젝트를 끝내기 위해 '자주' 일했습니다.
+sometimes,때때로,basic,The information was sometimes updated.,정보가 '때때로' 업데이트되었습니다.
+never,결코 ~않다,basic,The staff completed the task never.,직원들은 업무를 '결코 ~않다' 처리했습니다.
+again,다시,basic,Please respond to the email again.,이메일에 '다시' 답변해 주세요.
+soon,곧,basic,The manager soon checks the weekly report.,관리자는 주간 보고서를 '곧' 확인합니다.
+today,오늘,basic,The team worked today to finish the project.,팀은 프로젝트를 끝내기 위해 '오늘' 일했습니다.
+tomorrow,내일,basic,The information was tomorrow updated.,정보가 '내일' 업데이트되었습니다.
+yesterday,어제,basic,The staff completed the task yesterday.,직원들은 업무를 '어제' 처리했습니다.
+here,여기에,basic,Please respond to the email here.,이메일에 '여기에' 답변해 주세요.
+there,거기에,basic,The manager there checks the weekly report.,관리자는 주간 보고서를 '거기에' 확인합니다.
+together,함께,basic,The team worked together to finish the project.,팀은 프로젝트를 끝내기 위해 '함께' 일했습니다.
+carefully,주의 깊게,basic,The information was carefully updated.,정보가 '주의 깊게' 업데이트되었습니다.
+quickly,빠르게,basic,The staff completed the task quickly.,직원들은 업무를 '빠르게' 처리했습니다.
+slowly,천천히,basic,Please respond to the email slowly.,이메일에 '천천히' 답변해 주세요.
+easily,쉽게,basic,The manager easily checks the weekly report.,관리자는 주간 보고서를 '쉽게' 확인합니다.
+clearly,명확하게,basic,The team worked clearly to finish the project.,팀은 프로젝트를 끝내기 위해 '명확하게' 일했습니다.
+directly,직접,basic,The information was directly updated.,정보가 '직접' 업데이트되었습니다.
+finally,마침내,basic,The staff completed the task finally.,직원들은 업무를 '마침내' 처리했습니다.
+currently,현재,basic,Please respond to the email currently.,이메일에 '현재' 답변해 주세요.
+recently,최근에,basic,The manager recently checks the weekly report.,관리자는 주간 보고서를 '최근에' 확인합니다.
+probably,아마도,basic,The team worked probably to finish the project.,팀은 프로젝트를 끝내기 위해 '아마도' 일했습니다.
+especially,특히,basic,The information was especially updated.,정보가 '특히' 업데이트되었습니다.
+really,정말로,basic,The staff completed the task really.,직원들은 업무를 '정말로' 처리했습니다.
+also,또한,basic,Please respond to the email also.,이메일에 '또한' 답변해 주세요.
+only,"오직, 단지",basic,The manager only checks the weekly report.,"관리자는 주간 보고서를 '오직, 단지' 확인합니다."
+even,심지어,basic,The team worked even to finish the project.,팀은 프로젝트를 끝내기 위해 '심지어' 일했습니다.
+very,매우,basic,The information was very updated.,정보가 '매우' 업데이트되었습니다.
+quite,꽤,basic,The staff completed the task quite.,직원들은 업무를 '꽤' 처리했습니다.
+well,잘,basic,Please respond to the email well.,이메일에 '잘' 답변해 주세요.
+facility,시설,basic,The facility was mentioned in the company announcement.,회사 공지에서 '시설' 관련 내용이 언급되었습니다.
+counter,"창구, 계산대",basic,We discussed the counter during the morning meeting.,"우리는 오전 회의에서 '창구, 계산대' 관련 내용을 논의했습니다."
+form,"양식, 서식",basic,The staff prepared the form for today's schedule.,"직원들은 오늘 일정에 맞춰 '양식, 서식' 관련 내용을 준비했습니다."
+copy,사본,basic,The manager reviewed the copy before the meeting.,관리자는 회의 전에 '사본' 관련 내용을 검토했습니다.
+signature,서명,basic,Please check the signature before you leave the office.,사무실을 떠나기 전에 '서명' 관련 내용을 확인해 주세요.
+entrance fee,입장료,basic,The entrance fee was mentioned in the company announcement.,회사 공지에서 '입장료' 관련 내용이 언급되었습니다.
+map,지도,basic,We discussed the map during the morning meeting.,우리는 오전 회의에서 '지도' 관련 내용을 논의했습니다.
+guide,"안내서, 안내원",basic,The staff prepared the guide for today's schedule.,"직원들은 오늘 일정에 맞춰 '안내서, 안내원' 관련 내용을 준비했습니다."
+uniform,"제복, 유니폼",basic,The manager reviewed the uniform before the meeting.,"관리자는 회의 전에 '제복, 유니폼' 관련 내용을 검토했습니다."
+rent,"임대하다, 빌리다",basic,Employees should rent as soon as possible.,"직원들은 가능한 한 빨리 '임대하다, 빌리다' 해야 합니다."
+print,인쇄하다,basic,The manager asked us to print today.,관리자는 우리에게 오늘 '인쇄하다' 하라고 요청했습니다.
+upload,업로드하다,basic,We need to upload before the deadline.,우리는 마감일 전에 '업로드하다' 해야 합니다.
+download,다운로드하다,basic,Staff members can download when necessary.,직원들은 필요할 때 '다운로드하다' 할 수 있습니다.
+exchange,교환하다,basic,Please exchange before the scheduled meeting.,예정된 회의 전에 '교환하다' 해 주세요.
+collect,수집하다,basic,Employees should collect as soon as possible.,직원들은 가능한 한 빨리 '수집하다' 해야 합니다.
+crowded,붐비는,basic,The customer found the service crowded.,고객은 그 서비스가 '붐비는'다고 느꼈습니다.
+proper,적절한,basic,The report contains a proper explanation.,그 보고서에는 '적절한' 설명이 포함되어 있습니다.
+temporary,임시의,basic,We need a temporary plan for the project.,우리는 프로젝트를 위해 '임시의' 계획이 필요합니다.
