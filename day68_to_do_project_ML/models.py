@@ -1,5 +1,5 @@
 # =====================================================================
-# 2026. 08. 12.
+# 2026. 08. 12. --> 8. 19. 수정
 # to_do_ project
 # day66_to_do_project\models.py
 #
@@ -42,6 +42,15 @@ class Todo(Base):
         back_populates = 'todos',   # User.todos 속성과 양방향으로 연결
     )
 
+    # ------- 카테고리 자동분류(MLOps) 관련 컬럼 -----------
+    # predicted_category : '모델이 뭐라고 예측했는가'의 기록, 절대 덮어쓰기하기 않는다.
+    # final_category : '사람이 최종적으로 확인/수정한 값', 처음에는 비어 있다가 PATCH /todos/{id}/category 호출 시에만 채워진다.
+    # --> 두 컬럼으로 나눈 이유는?
+    #     나중에 모델이 얼마나 자주 맞췄는가를 두 컬럼을 비교해서 계산 할 수 있다.(정확도 측정)
+
+    predicted_category: Mapped[str|None] = mapped_column(String(20), nullable=True)  # 모델이 예측한 카테고리(Todo 생성 시 자동 저장)
+    final_category : Mapped[str|None] = mapped_column(String(20), nullable=True) # 사용자가 직접 수정/확정한 카테고리(없으면 예측값을 그대로 신뢰한 것)
+    
 # --- User 모델(회원 테이블) ---
 class User(Base):
     __tablename__ = 'user' # 실제 DB에 생성될 테이블 이름
@@ -74,7 +83,3 @@ class User(Base):
         back_populates='user',
         cascade='all, delete-orphan', # 회원이 삭제되면 그 회원의 Todo들도 함께 자동삭제
     )
-
-
-
-
