@@ -61,7 +61,7 @@ def get_next_version(artifacts_dir:Path) -> int:
     artifacts 폴더 안의 model_v1.pkl, model_v2.pkl ... 파일명을 스캔해서 다음에 저장할 버전 번호를 계산
     '파일명 + 숫자' 만으로 최소한의 버전 관리를 구현한 가벼운 방식 --> 버전이 쌓인다는 개념을 이해하기에 좋은 예제
     """    
-    existing = list(artifacts_dir.glob('model_v*.pkl'))
+    existing = list(artifacts_dir.glob('model_V*.pkl'))
     if not existing:    # 학습한 압축 모델이 없다.(pkl이 없다) --> 처음이니까 버전을 1로 한다.
         return 1
 
@@ -71,7 +71,7 @@ def get_next_version(artifacts_dir:Path) -> int:
     # split() --> ()안의 글자를 기준으로 쪼갠다. --> ['model', '2']
     # [-1] --> 인덱스 번호 맨 끝
     # int() --> 문자열이니까 int 정수형으로 바꾼다.
-    versions = [int(p.stem.split('_v')[-1]) for p in existing]
+    versions = [int(p.stem.split('_V')[-1]) for p in existing]
 
     return max(versions) + 1
 
@@ -124,7 +124,7 @@ def main():
         "category": sorted(df['category'].unique().tolist()),
         "source_data": DATA_PATH.name,
     }
-    metadata_path = ARTIFACTS_DIR / f'model_v{version}_metadata.json'
+    metadata_path = ARTIFACTS_DIR / f'model_V{version}_metadata.json'
     metadata_path.write_text(json.dumps(metadata, ensure_ascii=False, indent=2), encoding='utf-8')
 
     # main.py의 lifespan은 항상 'latest.pkl'이라는 고정된 이름만 찾는다.

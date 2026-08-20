@@ -38,7 +38,7 @@ def get_model_accuracy_handler(session=Depends(get_session)):
     correct = session.execute(correct_stmt).scalar_one()
 
     # total_labeled가 0이면 0으로 나누는 에러가 발생하니까 미리 방어 처리
-    accuracy = round(coorect / total_labeled, 4) if total_labeled > 0 else None
+    accuracy = round(correct / total_labeled, 4) if total_labeled > 0 else None
 
     return ModelAccuracyResponse(total_labeled=total_labeled, correct=correct, accuracy=accuracy)
 

@@ -1,5 +1,5 @@
 # =====================================================================
-# 2026. 08. 14.
+# 2026. 08. 14. --> 8. 20. 수정
 # to_do_ project
 # day66_to_do_project\streamlit_app.py
 #
@@ -192,20 +192,33 @@ with st.form('add_todo_form', clear_on_submit=True):
     new_title = st.text_input('새로운 할 일', placeholder='할 일을 입력하세요.')
     add_submitted = st.form_submit_button('추가', use_container_width=True)
 
-# .strip() : 문자열 앞뒤로 공백을 제거
 if add_submitted and new_title.strip():
-    requests.post(
-        f'{API_BASE}/todos', 
-        json={'title': new_title, 'is_done': False},
+
+    res = requests.post(
+        f'{API_BASE}/todos',
+        json={
+            'title': new_title.strip(),
+            'is_done': False
+        },
         headers=get_headers(),
     )
-    st.rerun()  # 추가 후 목록을 다시 불러오기 위해 새로고침
+
+    if res.status_code in (200, 201):
+        st.success('할 일이 추가되었습니다.')
+        st.rerun()
+    else:
+        st.error(f'할 일 추가 실패: {res.status_code}')
+        st.error(res.text)
 
 st.divider()
 
 # ----------할 일 목록 표시(카드 형태) -------------
 if total == 0:
     st.info('아직 할 일 없습니다. 위에서 추가해보세요!')
+
+# ===== Streamlit쪽에서 보여질 카테고리 선택지 목록 ======
+CATEGORY_OPTIONS =['업무', '개인', '긴급']
+# =======================================================
 
 for todo in todos:
     card_class = 'todo-done' if todo['is_done'] else 'todo-pending'
@@ -214,7 +227,7 @@ for todo in todos:
 
     with check_col:
         # 체크박스 값이 바뀌는 순간(=클릭하는 순간) PATCH 요청을 보낸다.
-        new_state = st.checkbox("", value=todo['is_done'], key=f'check_{todo["id"]}')
+        new_state = st.checkbox(f"{todo['title']} 완료여부", value=todo['is_done'], key=f'check_{todo["id"]}', label_visibility="collapsed")
         if new_state != todo['is_done']:
             requests.patch(f'{API_BASE}/todos/{todo["id"]}',
                            json={'is_done': new_state},
@@ -229,8 +242,37 @@ for todo in todos:
             requests.delete(f'{API_BASE}/todos/{todo["id"]}', headers=get_headers())
             st.rerun()
 
+# ======카테고리 자동분류 표시/확정 영역(MLOps 확장 부분) =======
+    predicted = todo.get('predicted_category')
+    final = todo.get('final_category')
 
-    
+    # predicted가 NULL인 경우(서버에 모델이 로드 안 되어 있던 시점에 생성된 Todo는 이 영역 자체를 표시하지 않는다.)
+    if predicted: 
+        cat_col1, cat_col2 = st.columns([2, 4])
+        with cat_col1:
+            if final:
+                # 사용자가 이미 수정을 완료한 경우
+                st.caption(f'확정된 카테고리: **{final}**')
+            else:
+                # 아직 아무도 확인하지 않은, 모델의 예측 그대로의 상태
+                st.caption(f'모델 예측: **{predicted}** (확인필요)')
+        with cat_col2:
+            # 확정값이 있으면 있는 값을 사용하고, 없으면 예측값으로 selectbox의 초기 선택값으로 사용
+            current_value = final if final else predicted
 
+            selected = st.selectbox('카테고리 확인/수정', 
+                                     CATEGORY_OPTIONS, 
+                                     index=CATEGORY_OPTIONS.index(current_value) if current_value in CATEGORY_OPTIONS else 0,
+                                     key=f'category_{todo["id"]}',
+                                     label_visibility = 'collapsed',  # 라벨을 화면에 안보이게(위 caption이 라벨 역할을 대신한다.)
+                                     )
+            # 사용자가 selectbox에서 값을 바꾼 경우에만 서버에 확정 요청을 한다.
+            # --> Todo.final_category를 채우는 지점 --> 나중에 ml/retrain.py의 새 학습 데이터가 된다.
+            if selected != current_value:
+                requests.patch(f'{API_BASE}/todos/{todo["id"]}/category', json={"category": selected}, headers=get_headers()
+                               )
+                st.rerun()
+
+    st.divider()
 
 

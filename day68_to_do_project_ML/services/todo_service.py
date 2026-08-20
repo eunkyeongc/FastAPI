@@ -43,7 +43,7 @@ class TodoService:
         category_service가 주입되어 있을 때만(= 모델이 로드되어 있을 때만) 제목을 넣어 카테고리를 예측한다.
         """
         predicted_category = None
-        if self.cagegory_service is not None:
+        if self.category_service is not None:
             predicted_category = self.category_service.predict(body.title)
 
         todo = Todo(title = body.title, is_done = body.is_done, user_id = user_id, predicted_category=predicted_category)
