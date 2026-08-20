@@ -55,7 +55,7 @@ class ReadingStatus(Base):
 
     id: Mapped[int] = mapped_column(primary_key=True)
     book_id: Mapped[int] = mapped_column(ForeignKey('books.id'), unique=True)  # 외래키
-    current_page: Mapped[int] = mapped_column(Tnteger, default=0) # 현재 읽은 쪽수, 기본값 0(아직 안 읽음)
+    current_page: Mapped[int] = mapped_column(Integer, default=0) # 현재 읽은 쪽수, 기본값 0(아직 안 읽음)
     # unread(안읽음)/reading(읽는 중)/done(완독)
     state: Mapped[str] = mapped_column(String(20), default='unread')
 
@@ -75,4 +75,3 @@ class Review(Base):
     # 관계
     book: Mapped[int] = relationship(back_populates='review')
 
-    
