@@ -6,7 +6,7 @@
 # table, schema 만들기(ORM 방식 사용)
 # ===============================================================
 
-from datetime import datetime
+from datetime import datetime, timezone
 
 # sqlalchemy의 String : 최대 길이를 지정해야 한다. 짤고 정해진 범위의 문자열에 적합.
 #                       DB쪽에서 길이 초과시 error가 발생해서 너무 긴 값이 들어가는 것을 막아주는 안전장치 역할.
@@ -16,7 +16,7 @@ from sqlalchemy import DateTime, ForeignKey, Integer, String, Text
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from database import Base
 
-# ------------ Book(책) Table ----------------
+# ------------------- Book(책) Table -------------------------
 class Book(Base):
     __tablename__ = "books"     # 실제로 저장될 DB 테이블 이름
 
@@ -41,15 +41,15 @@ class Book(Base):
 
     # 이 책이 언제 등록되었는지 자동 기록
     # default=datetime.utc : 저장되는 순간의 시각으로 자동으로 채워준다.
-    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utc)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.now(timezone.utc))
 
     # 관계 설정
     # cascade='all, delete_orphan' : 책이 삭제되면 그 책에 딸린 독서상태/리뷰도 같이 자동 삭제
     # uselist=False : 이 책 하나당 독서상태는 딱 하나, 단일 객체. 1:1 관계
-    reading: Mapped['ReadingStatus'] = relationship(book_populates='book', cascade='all, delete_orphan', uselist=False)
-    review: Mapped['Review'] = relationship(book_populates='book', cascade='all, delete_orphan', uselist=False)
+    reading: Mapped['ReadingStatus'] = relationship(back_populates='book', cascade='all, delete-orphan', uselist=False)
+    review: Mapped['Review'] = relationship(back_populates='book', cascade='all, delete-orphan', uselist=False)
 
-# ------------ ReadingStatus (독서 진행 상태) 테이블 ----------------
+# ------------- ReadingStatus (독서 진행 상태) 테이블 ---------------------
 class ReadingStatus(Base):    
     __tablename__ = 'reading_statuses'
 
@@ -63,7 +63,7 @@ class ReadingStatus(Base):
     book: Mapped[Book] = relationship(back_populates='reading')
 
 
-# ------------ Review(리뷰) 테이블 ----------------    
+# --------------- Review(리뷰) 테이블 --------------------    
 class Review(Base):    
     __tablename__ = 'reviews'
 
@@ -73,5 +73,5 @@ class Review(Base):
     content: Mapped[str] = mapped_column(Text)  # 리뷰 본문
 
     # 관계
-    book: Mapped[int] = relationship(back_populates='review')
+    book: Mapped[Book] = relationship(back_populates='review')
 
