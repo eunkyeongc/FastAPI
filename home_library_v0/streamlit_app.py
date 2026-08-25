@@ -34,7 +34,7 @@ if st.button('등록'):
         if r.ok:
             st.success(f'등록됨: {r.json()["title"]}')
         else:
-            st.error(f'실패: {r.status.code}')
+            st.error(f'실패: {r.status_code}')
 
 
 
