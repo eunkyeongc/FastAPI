@@ -62,13 +62,15 @@ def lookup_book(isbn: str, db:Session = Depends(get_db)):
         isbn = metadata['isbn'],
         author = metadata['author'],
         publisher = metadata['publisher'],
-        cover_pathh = None,
+        cover_path = None,
         recognition_status = 'confirmed'
     )
 
     db.add(book)
     db.commit()
     db.refresh(book)
+
+    return book
 
 @app.post('/books/register', status_code=status.HTTP_201_CREATED)
 def register_book(isbn: str=Form(...), image:UploadFile=File(...), db:Session=Depends(get_db)):
@@ -98,11 +100,11 @@ def register_book(isbn: str=Form(...), image:UploadFile=File(...), db:Session=De
     # 원본 파일명을 그대로 안쓰고 이 문자열로 교체
     #   1) 같은 이름의 파일이 두번 업로드 되어도 덮어쓰기 걱정이 없다.--> 데이터 소실문제 해결
     #   2) 한글 파일명이 환경에 따라 깨지거나 다운로드 실패하는 문제도 방지
-    filename = f'{uuid.uuid64().hex}{extension}'
+    filename = f'{uuid.uuid4().hex}{extension}'
 
     path = UPLOAD_DIR / filename # pathlib 가 OS에 맞는 경로 구분자로 알아서 합쳐준다.
 
-    path.write_byets(raw)   # 앞에서 읽어둔 원본 이미지 바이트를 실제 파일로 저장
+    path.write_bytes(raw)   # 앞에서 읽어둔 원본 이미지 바이트를 실제 파일로 저장
 
     metadata = lookup_metadata(validated_isbn)
 
@@ -119,7 +121,7 @@ def register_book(isbn: str=Form(...), image:UploadFile=File(...), db:Session=De
 
     book = Book(
         title = title,
-        isbn = isbn,
+        isbn = validated_isbn,
         author = author,
         publisher = publisher,
         cover_path = str(path), 
@@ -129,7 +131,9 @@ def register_book(isbn: str=Form(...), image:UploadFile=File(...), db:Session=De
     db.commit()
     db.refresh(book)
 
+    return book
+
 @app.get('/books')
 def list_book(db: Session=Depends(get_db)):
     """ 등록된 책 전체 목록을 돌려주는 API"""
-    return db.scalar(select(Book)).all()
+    return db.scalars(select(Book)).all()

@@ -22,6 +22,7 @@ isbn_input = st.text_input('ISBN 입력 (예: 9791139721973)')
 def show_response(r: requests.Response):
     """ API 응답을 상태코드별로 다르게 보여주는 공용 함수 """
     if r.ok:    # 성공
+
         st.success(f'등록됨: {r.json()["title"]}')
         return
 
@@ -33,6 +34,7 @@ def show_response(r: requests.Response):
             f' 저자: {existing["author"] or "정보 없음"}\n'
             f'출판사: {existing["publisher"] or "정보 없음"}'
         )
+        return
 
     # 그 외 - 에러
     detail = r.json().get('detail', '')
@@ -49,3 +51,27 @@ st.divider()    # 구분선
 
 # 2단계 : ISBN + 표지 사진을 함 폼에서 함께 등록
 st.header('2단계: ISBN + 표지 사진 함께 등록하기 ')
+
+with st.form('resgister_form'):
+    form_isbn = st.text_input('ISBN 입력')
+    form_image = st.file_uploader('표지사진')
+    submitted = st.form_submit_button('등록하기')
+
+if submitted :
+    if not form_isbn:
+        st.warning('ISBN을 입력해주세요!')
+    elif form_image is None:
+        st.warning('표지 사진을 선택해주세요!')
+    else:
+        r = requests.post(
+            f'{API}/books/register',
+            data ={'isbn': form_isbn},
+            files = {'image': (form_image.name, form_image.getvalue(), form_image.type)},
+        )
+        show_response(r)
+
+st.divider()
+
+st.subheader('등록된 책')
+for book in requests.get(f'{API}/books').json():
+    st.write(f'{book["title"]} ({book["recognition_status"]})')
