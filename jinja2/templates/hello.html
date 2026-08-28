@@ -1,0 +1,16 @@
+<!-- !+[tab]를 누르면 기분족인 틀이 생성됨 -->
+<!DOCTYPE html>
+<html lang = "kr">
+<head>
+    <title>jinja2</title>
+</head>
+<body>
+    <h1>안녕하세요, {{ name }}님!</h1>
+
+    <ul>
+    {% for item in items %} 
+        <li>{{ item }}</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
