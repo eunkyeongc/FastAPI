@@ -8,6 +8,10 @@ wheels/
 *.pkl
 
 # Virtual environments
-.venv
+**/.venv/
+
+**/.env/
 
 .env
+.venv
+
