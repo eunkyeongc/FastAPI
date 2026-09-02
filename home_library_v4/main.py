@@ -1,31 +1,46 @@
 '''
-2026. 8. 25.
-home_library_v2 / main.py
+2026. 9. 2.
+home_library_v4 / main.py
 -----------------------------
-국립중앙도서관 소장자료 검색 중복확인 및 책 표지 등록
-2단계 - 중복 등록 응답을 에러가 아닌 메세지로 개선. 
-        detail을 딕셔너리로 구조화해서, 기존 책의 제목/저자/출판사/상태를 각각 따로 꺼내 사용할 수 있게 한다.
+기존 JSON API 라우터(/books/lookup, /books/resister, /books)는 응답 형태 그대로 유지하고,
+HTML을 반환하는 새 라우터(/ui/books/lookup, /ui/books/register, /shelf)를 추가
 '''
-import io
-import uuid # 충돌없는 고유한 이름을 자동으로 만들어주는 라이브러리(유니크한 식별자를 만들겠다)
-from pathlib import Path
-from fastapi import Depends, FastAPI, File, Form, UploadFile, status, HTTPException
+from pathlib import Path        # 파이썬 표준 라이브러리, 경로지정
+
+from fastapi import Depends, FastAPI, File, Form, UploadFile, status, HTTPException, Request
+from fastapi.staticfiles import StaticFiles  # 해당 폴더의 파일들을 그대로 웹 주소로 접근 가능하게 공개하는 긴응
+from fastapi.templating import Jinja2Templates  # templates폴더안의 .html파일에 파이썬 데이터를 채워서 완성된  HTML 페이지로 만들어준다.
+
 from sqlalchemy import select
 from sqlalchemy.orm import Session   # DB에 쉽게 접근
-from PIL import Image, UnidentifiedImageError 
+
 from database import Base, engine, get_db
 from models import Book
-from services.recognition import lookup_metadata, normalize_isbn
+from services.book_service import lookup_book_service, register_book_service 
 
 UPLOAD_DIR = Path('uploads')
 UPLOAD_DIR.mkdir(exist_ok=True)  # 디렉토리가 이미 존재하면 무시하고 넘어가세요.
 
 Base.metadata.create_all(engine)    # DB엔진을 켜기
 
-app = FastAPI(title = '우리집 책장 API')  # @app(/books)등을 위한 전초 작업
+app = FastAPI(title = '우리집 책장 API ver.4')  # @app(/books)등을 위한 전초 작업
+
+# -----------------------------------------------------------------------------
+# 정적 파일(이미지, CSS)적용, 공개설정에 관한 내용
+# app.mount(주소, 무엇을, 이름): 연결 요청
+#    - uploads 폴더(책 표지)
+#    - static 폴더(CSS)
+# 주소를 직접 문자열로 '/static/style.css'라고 하드코딩하지 않은 이유
+#    - 나중에 마운트 경로가 바뀌어도 템플릿을 일일이 안 고쳐도 되게 하기 위해.
+# -----------------------------------------------------------------------------
+app.mount('/uploads', StaticFiles(directory=UPLOAD_DIR), name='uploads')
+app.mount('/static', StaticFiles(directory='static'), name='static')
+
+templates = Jinja2Templates(directory='templates') # html을 찾아라!
+
 def _duplicate_detail(existing_book: Book) -> dict:  
     """
-    중복된 책을 만났을 때 응담에 실을 정보를 한 곳에서 만든다.
+    중복된 책을 만났을 때 응답에 실을 정보를 한 곳에서 만든다.
     lookup_book, register_book 두 군데에서 똑같이 재사용하기 위한 헬퍼 함수
     """
     return {
@@ -39,101 +54,110 @@ def _duplicate_detail(existing_book: Book) -> dict:
         }
     }
 
+
+# 기존 API 라우터-------------------------------------------------------------------------
 @app.get('/books/lookup')
 def lookup_book(isbn: str, db:Session = Depends(get_db)):
-    """ ISBN 문자열만으로 서지정보를 정보하고 DB에 저장 """
-    validated_isbn = normalize_isbn(isbn)
+    """ isbn이 들어오면 DB에서 찾아서 결과 확인 """
+    result = lookup_book_service(isbn, db)
 
-    if not validated_isbn:
-        raise HTTPException(422, '유효한 ISBN 형식이 아닙니다.')
+    if result.status == 'invalid_isbn':
+        raise HTTPException(422, result.message) # 상태코드 422(Unprocessable Entity) --> 요청은 이해했지만 값이 유효하지 않다.
 
-    existing_book =db.scalar(select(Book).where(Book.isbn ==  validated_isbn)) # 같은 책을 찾는다.
+    if result.status == 'duplicate':
+        raise HTTPException(status.HTTP_409_CONFLICT, _duplicate_detail(result.book)) # 상태코드 409(conflict) --> 이미 존재하는 것과 충돌, 여기서는 이미 등록된 책
 
-    if existing_book:   # 중복된 책이 있다면 409 에러 발생 --->  _duplicate_detail 헬퍼 함수 호출
-        raise HTTPException(status.HTTP_409_CONFLICT, _duplicate_detail(existing_book))
+    if result.status == 'not_found':
+        raise HTTPException(4040, result.message) # 상태코드 404(Not Found) --> 요청한 대상을 찾을 수 없다. 서지 정보가 없다. Not Found
 
-    metadata = lookup_metadata(validated_isbn)
+    return result.book  # result.status == 'ok' --> 성공
 
-    if not metadata:
-        raise HTTPException(404, '조회된 서지정보가 없습니다.')
-
-    book = Book(
-        title = metadata['title'],
-        isbn = metadata['isbn'],
-        author = metadata['author'],
-        publisher = metadata['publisher'],
-        cover_path = None,
-        recognition_status = 'confirmed'
-    )
-
-    db.add(book)
-    db.commit()
-    db.refresh(book)
-
-    return book
-
+    
 @app.post('/books/register', status_code=status.HTTP_201_CREATED)
 def register_book(isbn: str=Form(...), image:UploadFile=File(...), db:Session=Depends(get_db)):
-    """ ISBN + 표지 사진을 함께 등록 """
-    validated_isbn = normalize_isbn(isbn)
-    if not validated_isbn:
-        raise HTTPException(422, '유효한 ISBN 형식이 아닙니다.')
+    """ isbn, 책 표지를 DB에 등록 """
+    raw = image.file.read() # 업로드 파일 내부에 실제 파일 객체를 열어서 내용을 전부 읽어 bytes(0과 1의 나열), 이진수 형태로 가져온다. 
 
-    existing_book =db.scalar(select(Book).where(Book.isbn == validated_isbn))   # 중복 확인
-    if existing_book:
-        raise HTTPException(status.HTTP_409_CONFLICT, _duplicate_detail(existing_book))
+    result = register_book_service(isbn, raw, image.filename, db) # image.filename --> 사용자가 업로드한 원래 파일 이름
 
-    raw = image.file.read() # 이미지 읽는다.
-    try:
-        with Image.open(io.BytesIO(raw)) as probe:
-            probe.verify()
-    except (UnidentifiedImageError, OSError):
-        raise HTTPException(415, '올바른 이미지 파일이 아닙니다.')
+    if result.status == 'invalid_isbn':
+        raise HTTPException(422, result.message) 
 
-    # uuid 파일명으로 저장
-    # Path(image.filename).suffix --> 원본 파일의 확장자만 뽑아온다.  ex)'.jpg'
-    #                                 확장자가 없는 이상한 파일이 올라온 경우를 대비해 기본값 '.jpg'
-    extension = Path(image.filename).suffix or '.jpg'
+    if result.status == 'duplicate':
+        raise HTTPException(status.HTTP_409_CONFLICT, _duplicate_detail(result.book)) 
 
-    # uuid.uuid4() --> 충돌 확률이 사실상 0에 가까운 랜덤 UUID를 생성
-    # .hex --> 하이픈(-) 없는 32자리 영문/숫자 문자열로 변환
-    # 원본 파일명을 그대로 안쓰고 이 문자열로 교체
-    #   1) 같은 이름의 파일이 두번 업로드 되어도 덮어쓰기 걱정이 없다.--> 데이터 소실문제 해결
-    #   2) 한글 파일명이 환경에 따라 깨지거나 다운로드 실패하는 문제도 방지
-    filename = f'{uuid.uuid4().hex}{extension}'
+    if result.status == 'invalid_image':
+        raise HTTPException(415, result.message) # 상태코드 415(Unsupported Media Type) --> 파일 형식이 이미지가 아니다.
 
-    path = UPLOAD_DIR / filename # pathlib 가 OS에 맞는 경로 구분자로 알아서 합쳐준다.
+    return result.book
 
-    path.write_bytes(raw)   # 앞에서 읽어둔 원본 이미지 바이트를 실제 파일로 저장
-
-    metadata = lookup_metadata(validated_isbn)
-
-    if metadata:
-        title = metadata['title']
-        author = metadata['author']
-        publisher = metadata['publisher']
-        status_value = 'confirmed'
-    else:
-        title = f'수동 등록: ISBN {validated_isbn}(서지정보 조회 실패)'
-        auther = None
-        publisher = None
-        status_value = 'needs_review'
-
-    book = Book(
-        title = title,
-        isbn = validated_isbn,
-        author = author,
-        publisher = publisher,
-        cover_path = str(path), 
-        recognition_status = status_value)
-
-    db.add(book)
-    db.commit()
-    db.refresh(book)
-
-    return book
 
 @app.get('/books')
 def list_book(db: Session=Depends(get_db)):
     """ 등록된 책 전체 목록을 돌려주는 API"""
     return db.scalars(select(Book)).all()
+
+
+# 새로 추가된  HTML(Jinja2) 라우터 ----------------------------------------------------------------
+@app.get('/ui/books/lookup')
+def ui_lookup_from(request: Request):
+    """ 
+    GET 기능 : 조회 폼 화면만 보여준다.
+    request: Request --> Jinja2Templates가 화면으로 만들 때 반드시 필요로 하는 매개변수
+                         내부적으로 어떤 요청이 어떤 서버/포트로 왔는지 등을 알아야 url_for() 같은 기능이 동작한다.
+    templates.TemplateResponse(...) --> context에 담긴 데이터를 채워 넣은 뒤, 완성된 html을 브라우저에 응답으로 보낸다.
+    context={} --> 맨 처음 화면 진입 시 조회 결과가 없으므로 공백을 설정
+    """
+    return templates.TemplateResponse(request=request, name='lookup.html', context={})
+
+@app.post('/ui/books/lookup')
+def ui_lookup_submit(request: Request, isbn:str=Form(...), db:Session=Depends(get_db)):
+    """ POST 기능 : 폼 제출을 받아서 book_service를 호출, 결과를 같은 화면에 다시 보여준다."""
+    result = lookup_book_service(isbn, db)
+
+    return templates.TemplateResponse(
+        request=request,
+        name='lookup.html',
+        context={'reseul': result, 'isbn_input':isbn} # context로 넘긴 값들을 lookup.html안에서 {{result}}, {{isbn_input}} 접근가능
+    )
+
+@app.get('/ui/books/register')
+def ui_resister_form(request: Request):
+    return templates.TemplateResponse(request=request, name='register.html', context={})
+
+
+@app.post('/ui/books/register')
+def ui_resister_submit(
+    request: Request, 
+    isbn: str=Form(...), 
+    image: UploadFile=File(...),
+    db: Session=Depends(get_db),
+):
+    raw = image.file.read()
+    result = register_book_service(isbn, raw, image.filename, db)
+    return templates.TemplateResponse(
+        request=request,
+        name='register.html',
+        context={'result':result, 'isbn_input': isbn}
+    )
+
+@app.get('/shelf')
+def shelf(request: Request, db: Session=Depends(get_db)):
+    """ 등록된 책을 한 눈에 보여주는 서재 화면 """
+
+    #.order_by(Book.created_at.desc()) --> 등록된 시각(created_at) 기준으로 최신순(내리참순) 정렬
+    books = db.scalars(select(Book).order_by(Book.created_at.desc())).all()
+
+    shelf_items=[]
+
+    for book in books:
+        cover_url = None # 기본값, 책 표지 없음.
+        if book.cover_path:   # 책 표지 경로가 있다면(책 표지 이미지가 등록되었다면)
+            cover_url =f'/uploads/{Path(book.cover_path).name}' # 파일명(확장자포함)을 가져옴.
+        shelf_items.append({'book':book, 'cover_rul': cover_url})
+
+    return templates.TemplateResponse(
+        request=request,
+        name='shelf.html',
+        context={'shelf_items': shelf_items},
+    )

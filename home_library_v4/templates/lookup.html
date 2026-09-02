@@ -1,4 +1,4 @@
-{# home_library_v4/templates/lookup.html - base.html  상속받는다 - isbn 빠르게(사진없이 등록 #}
+{# home_library_v4/templates/lookup.html - base.html  상속받는다 - isbn 빠르게(사진없이 등록) #}
 {% extends "base.html" %}
 {% block title %} ISBN 조회 등록 {% endblock %}
 
@@ -9,7 +9,7 @@
 
    <form action="/ui/books/lookup" method="post" class="row g-2">
         <div class="col-auto flex-row-1">
-        <input type="text" name="isbn" class="form-cotrol" placeholder="ISBN 입력 (예: 9791190090018)" value="{{ isbn_input or ''}}">    
+        <input type="text" name="isbn" class="form-cotrol" placeholder="ISBN 입력 (예: 9791190090018)" value="{{ isbn_input or '' }}">    
         </div>
 
         <div class="col-auto">
@@ -33,12 +33,12 @@
        <div class="alert alert-info" style="max-width: 600px;">
             이미 서재에 있는 책이에요!<br> 
             <strong>{{ result.book.title }}</strong>  <br>
-            저자: {{ result.book.author or "정보 없음"}} / 출판사: {{ result.book.publisher or "정보 없음"}}
+            저자: {{ result.book.author or "정보 없음" }} / 출판사: {{ result.book.publisher or "정보 없음" }}
         </div> 
 
     {% else %}
        <div class="alert alert-danger" style="max-width: 600px;">
-            <strong>{{ result.message}</strong>    
+            <strong>{{ result.message }}</strong>    
         </div> 
     {% endif %}
 

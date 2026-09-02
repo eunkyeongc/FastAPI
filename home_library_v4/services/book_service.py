@@ -23,7 +23,7 @@ from sqlalchemy.orm import Session
 from models import Book     # models.py에서 정의한 Book 클래스를 가져온다.
 from services.recognition import lookup_metadata, normalize_isbn
 
-UPLOAD_DIR = Path('upload')
+UPLOAD_DIR = Path('uploads')
 UPLOAD_DIR.mkdir(exist_ok=True) # 'upload' 폴다가 이미 존재하면 그냥 넘어가라.
 
 @dataclass
