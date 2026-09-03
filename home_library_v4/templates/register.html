@@ -9,14 +9,12 @@
     <form action="/ui/books/register" method="post" enctype="multipart/form-data">
         <div class="mb-3">
             <label class="form-label">ISBN</label>
-            <input type="text" name="isbn class="form-control" value="{{isbn_input or ''}}">
+            <input type="text" name="isbn" class="form-control" value="{{ isbn_input or '' }}">
         </div>
-    </form>
-
-    <form action="/ui/books/register" method="post" enctype="multipart/form-data">
+    
         <div class="mb-3">
             <label class="form-label">표지사진</label>
-            <input type="file" name="image class="form-control" accept="image/*">
+            <input type="file" name="image" class="form-control" accept="image/*">
          </div>
          <button type="submit" class="btn btn-primary w-100">등록하기</button>
     </form>
@@ -38,7 +36,7 @@
 
     {% else %}
        <div class="alert alert-danger" style="max-width: 500px;">
-            <strong>{{ result.message}</strong>    
+            <strong>{{ result.message }}</strong>    
         </div> 
     {% endif %}
 

@@ -3,15 +3,15 @@
 {% block title %} 서재 보기 {% endblock %}
 
 {% block content %}
-<h2 class="mb-4">등록된 책({{ self_items|length}}권)</h2>
+<h2 class="mb-4">등록된 책({{ shelf_items|length}}권)</h2>
 
 <div class="row row-cols-2 row-cols-md-4 g-4">
-    {% for item in self_items %}
+    {% for item in shelf_items %}
     <div class="col">
         <div class="card book-card h-100">
             {# 책 표지가 있다면 #}
             {% if item.cover_url %}
-            <img src="{{ item.cover_url }}" alt="{{ item.book.tiltle }}" class="card-img-top" style="height: 220px; object-fit:cover;">
+            <img src="{{ item.cover_url }}" alt="{{ item.book.title }}" class="card-img-top" style="height: 220px; object-fit:cover;">
 
             {# 책 표지가 없다면 -  그라데이션 placeholder로 표시 #}
             {% else %}
@@ -20,8 +20,8 @@
             </div>
             {% endif%}
 
-            <div class="card-body"
-                <h6 class="card-title ">{{ item.book.titel }}</h6>
+            <div class="card-body">
+                <h6 class="card-title ">{{ item.book.title }}</h6>
                 <p class="card-text text-muted small"> {{ item.book.author or '저자 미상' }} </p>
                 <span class="badge bg-{{ 'success' if item.book. recognition_status == 'confirmed' else 'warning'}}">
                     {{ item.book.recognition_status }}

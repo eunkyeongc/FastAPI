@@ -68,12 +68,12 @@ def lookup_book(isbn: str, db:Session = Depends(get_db)):
         raise HTTPException(status.HTTP_409_CONFLICT, _duplicate_detail(result.book)) # 상태코드 409(conflict) --> 이미 존재하는 것과 충돌, 여기서는 이미 등록된 책
 
     if result.status == 'not_found':
-        raise HTTPException(4040, result.message) # 상태코드 404(Not Found) --> 요청한 대상을 찾을 수 없다. 서지 정보가 없다. Not Found
+        raise HTTPException(404, result.message) # 상태코드 404(Not Found) --> 요청한 대상을 찾을 수 없다. 서지 정보가 없다. Not Found
 
     return result.book  # result.status == 'ok' --> 성공
 
     
-@app.post('/books/register', status_code=status.HTTP_201_CREATED)
+@app.post('/books/register', status_code=status.HTTP_201_CREATED) # 책표지 등록
 def register_book(isbn: str=Form(...), image:UploadFile=File(...), db:Session=Depends(get_db)):
     """ isbn, 책 표지를 DB에 등록 """
     raw = image.file.read() # 업로드 파일 내부에 실제 파일 객체를 열어서 내용을 전부 읽어 bytes(0과 1의 나열), 이진수 형태로 가져온다. 
@@ -92,14 +92,14 @@ def register_book(isbn: str=Form(...), image:UploadFile=File(...), db:Session=De
     return result.book
 
 
-@app.get('/books')
+@app.get('/books') # 전체 책을 보여주는 것.
 def list_book(db: Session=Depends(get_db)):
     """ 등록된 책 전체 목록을 돌려주는 API"""
     return db.scalars(select(Book)).all()
 
 
 # 새로 추가된  HTML(Jinja2) 라우터 ----------------------------------------------------------------
-@app.get('/ui/books/lookup')
+@app.get('/ui/books/lookup') 
 def ui_lookup_from(request: Request):
     """ 
     GET 기능 : 조회 폼 화면만 보여준다.
@@ -111,14 +111,18 @@ def ui_lookup_from(request: Request):
     return templates.TemplateResponse(request=request, name='lookup.html', context={})
 
 @app.post('/ui/books/lookup')
-def ui_lookup_submit(request: Request, isbn:str=Form(...), db:Session=Depends(get_db)):
+def ui_lookup_submit(
+    request: Request, 
+    isbn:str=Form(...), 
+    db:Session=Depends(get_db)
+):
     """ POST 기능 : 폼 제출을 받아서 book_service를 호출, 결과를 같은 화면에 다시 보여준다."""
     result = lookup_book_service(isbn, db)
 
     return templates.TemplateResponse(
         request=request,
         name='lookup.html',
-        context={'reseul': result, 'isbn_input':isbn} # context로 넘긴 값들을 lookup.html안에서 {{result}}, {{isbn_input}} 접근가능
+        context={'result': result, 'isbn_input':isbn} # context로 넘긴 값들을 lookup.html안에서 {{result}}, {{isbn_input}} 접근가능
     )
 
 @app.get('/ui/books/register')
@@ -154,7 +158,7 @@ def shelf(request: Request, db: Session=Depends(get_db)):
         cover_url = None # 기본값, 책 표지 없음.
         if book.cover_path:   # 책 표지 경로가 있다면(책 표지 이미지가 등록되었다면)
             cover_url =f'/uploads/{Path(book.cover_path).name}' # 파일명(확장자포함)을 가져옴.
-        shelf_items.append({'book':book, 'cover_rul': cover_url})
+        shelf_items.append({'book':book, 'cover_url': cover_url})
 
     return templates.TemplateResponse(
         request=request,

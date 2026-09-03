@@ -1,7 +1,7 @@
 
 # =================================================
-# 2026. 8. 31.
-# 우리집 책장  V3 - Dockerfile
+# 2026. 9. 3.
+# 우리집 책장  V4 - Dockerfile
 # db --> PostgreSQL 17
 # api --> Fastapi
 # web --> Streamlit
@@ -22,9 +22,15 @@ COPY models.py .
 COPY streamlit_app.py .
 COPY services/ ./services/
 
+# templates/ 폴더 추가
+COPY templates/ ./templates/
+
+# static/ 폴더 추가
+COPY static/ ./static/
+
 # EXPOSE : 이 컨테이너가 몇번 포트를 쓰는지 문서화하는 명령어(실제로 포트를 열어주는 것은 아니다.)
 #          --> 실제 포트 연결은 docker-compose.yml이 담당
-# 8000 --> , 8501 --> streamlit
+# 8000 --> fastapi, 8501 --> streamlit
 EXPOSE 8000 
 EXPOSE 8501 
 
